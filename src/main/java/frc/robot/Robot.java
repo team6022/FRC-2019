@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI OI;
 	public static ExampleSubsystem ExampleSubsystem;
-	
+
 	public String gameData;
 
 	Command autonomousCommand;
@@ -48,10 +48,10 @@ public class Robot extends IterativeRobot {
 		// starts and streams camera data
 		CameraServer.getInstance().startAutomaticCapture();
 		CameraServer.getInstance().startAutomaticCapture();
-		
+
 		// this will return a string from the "Game Data" field in the Driver Station
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		
+
 
 		// loads robots controls
 		ExampleSubsystem = new ExampleSubsystem();
@@ -89,7 +89,7 @@ public class Robot extends IterativeRobot {
 	 * chooser code above (like the commented example) or additional comparisons to
 	 * the switch structure below with additional strings & commands.
 	 */
-	public void autonomousInit() 
+	public void autonomousInit()
 	{
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		// autonomousCommand = (Command) chooser.getSelected();
@@ -135,7 +135,7 @@ public class Robot extends IterativeRobot {
 
 	public void operatorControl() {
 
-		while (isOperatorControl() && isEnabled()) 
+		while (isOperatorControl() && isEnabled())
 		{
 
 			Timer.delay(0.005);

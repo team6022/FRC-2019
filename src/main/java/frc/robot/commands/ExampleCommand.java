@@ -5,19 +5,19 @@ import frc.robot.Robot;
 import frc.robot.subsystems.*;
 
 public class ExampleCommand extends Command {
-	
-	public ExampleCommand() 
+
+	public ExampleCommand()
 	{
 		requires(Robot.ExampleSubsystem);
 	}
 
-	protected void initialize() 
+	protected void initialize()
 	{
 	}
 
-	protected void execute() 
+	protected void execute()
 	{
-    Robot.ExampleSubsystem.GrabCommand(Robot.OI.getJoystickBran());
+		Robot.ExampleSubsystem.GrabCommand(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished() {
