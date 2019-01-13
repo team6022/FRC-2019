@@ -2,13 +2,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.*;
 
-public class ExampleCommand extends Command {
+public class VelcroPistonsOut extends Command {
 
-	public ExampleCommand()
+	public VelcroPistonsOut()
 	{
-		requires(Robot.ExampleSubsystem);
+		requires(Robot.VelcroPistons);
 	}
 
 	protected void initialize()
@@ -17,7 +16,7 @@ public class ExampleCommand extends Command {
 
 	protected void execute()
 	{
-		Robot.ExampleSubsystem.GrabCommand(Robot.OI.getJoystickBran());
+		Robot.VelcroPistons.PistonOut(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished() {
