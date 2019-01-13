@@ -11,10 +11,11 @@ public class OI {
 	Button button1 = new JoystickButton(Branjoy, 1);
 	Button button2 = new JoystickButton(Branjoy, 2);
 
+	
 	public OI()
 	{
-		button1.whenPressed(new VelcroPistonsOut());
-		button2.whenPressed(new VelcroPistonsIn());
+		button1.whenPressed(new VelcroPistonsToggle());
+		//button2.whenPressed(new VelcroPistonsIn());
 	}
 
 	public Joystick getJoystickBran()
