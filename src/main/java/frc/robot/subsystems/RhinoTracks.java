@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveTrack;
 import edu.wpi.first.wpilibj.*;
 
@@ -31,7 +32,11 @@ public class RhinoTracks extends Subsystem {
 			SP1.set(-Branjoy.getY()*0.60);
 			SP2.set(-Branjoy.getY()*0.60);
 			SP3.set(Branjoy.getY()*0.60);
-			SP4.set(Branjoy.getY()*0.60);
+            SP4.set(Branjoy.getY()*0.60);
+            
+            SmartDashboard.putNumber("getY", -Branjoy.getY()*0.60);
+
+
 		}
 		
 		else
@@ -39,7 +44,11 @@ public class RhinoTracks extends Subsystem {
 			SP1.set(Branjoy.getX()*0.50);
 			SP2.set(Branjoy.getX()*0.50);
 			SP3.set(Branjoy.getX()*0.50);
-			SP4.set(Branjoy.getX()*0.50);
+            SP4.set(Branjoy.getX()*0.50);
+            
+            SmartDashboard.putNumber("getX", -Branjoy.getX()*0.50);
+
+
 		}
 	}
 }

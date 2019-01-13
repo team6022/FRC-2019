@@ -51,6 +51,12 @@ public class Robot extends IterativeRobot {
 		//ShuffleDashboard Sets
 		SmartDashboard.setDefaultBoolean("isVelcroPistonOut", false);
 
+		SmartDashboard.setDefaultNumber("getY", 0);
+		SmartDashboard.setDefaultNumber("getX", 0);
+
+
+
+
 		// starts and streams camera data
 		CameraServer.getInstance().startAutomaticCapture();
 		CameraServer.getInstance().startAutomaticCapture();
