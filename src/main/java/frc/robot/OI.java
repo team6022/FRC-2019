@@ -8,11 +8,13 @@ import frc.robot.commands.*;
 
 public class OI {
 	final Joystick Branjoy = new Joystick(0);
-	Button button = new JoystickButton(Branjoy, 1);
+	Button button1 = new JoystickButton(Branjoy, 1);
+	Button button2 = new JoystickButton(Branjoy, 2);
 
 	public OI()
 	{
-		button.whenPressed(new ExampleCommand());
+		button1.whenPressed(new VelcroPistonsOut());
+		button2.whenPressed(new VelcroPistonsIn());
 	}
 
 	public Joystick getJoystickBran()

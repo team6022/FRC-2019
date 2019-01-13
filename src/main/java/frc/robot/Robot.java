@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 // import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 // import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.VelcroPistons;
 
 //import org.opencv.imgproc.Imgproc;
 //import edu.wpi.cscore.CvSource;
@@ -31,7 +31,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static OI OI;
-	public static ExampleSubsystem ExampleSubsystem;
+	public static VelcroPistons VelcroPistons;
 
 	public String gameData;
 
@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
 
 
 		// loads robots controls
-		ExampleSubsystem = new ExampleSubsystem();
+		VelcroPistons = new VelcroPistons();
 		OI = new OI();
 		// keep OI() at the bottom
 
