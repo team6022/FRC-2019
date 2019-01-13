@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 // import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.VelcroPistons;
+import frc.robot.subsystems.RhinoTracks;
 
 //import org.opencv.imgproc.Imgproc;
 //import edu.wpi.cscore.CvSource;
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI OI;
 	public static VelcroPistons VelcroPistons;
+	public static RhinoTracks RhinoTracks;
 
 	public String gameData;
 
@@ -58,6 +60,7 @@ public class Robot extends IterativeRobot {
 
 
 		// loads robots controls
+		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
 		OI = new OI();
 		// keep OI() at the bottom

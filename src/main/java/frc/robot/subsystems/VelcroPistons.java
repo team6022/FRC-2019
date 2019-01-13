@@ -19,7 +19,7 @@ public class VelcroPistons extends Subsystem {
 
 		public void initDefaultCommand()
 		{
-
+			
 		}
 
 	public void PistonOut(Joystick Branjoy)
