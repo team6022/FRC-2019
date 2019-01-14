@@ -11,5 +11,8 @@
     ".project": true
   },
   "wpilib.online": true,
-  "editor.renderWhitespace": "all"
+  "editor.renderWhitespace": "boundary",
+  "files.trimTrailingWhitespace": true,
+  "editor.insertSpaces": false,
+  "editor.tabCompletion": "on"
 }
