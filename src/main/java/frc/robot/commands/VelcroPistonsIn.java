@@ -3,7 +3,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class VelcroPistonsIn extends Command {
+public class VelcroPistonsIn extends Command
+{
 
 	public VelcroPistonsIn()
 	{
@@ -19,14 +20,17 @@ public class VelcroPistonsIn extends Command {
 		Robot.VelcroPistons.PistonIn(Robot.OI.getJoystickBran());
 	}
 
-	protected boolean isFinished() {
+	protected boolean isFinished()
+	{
 		return true;
 	}
 
-	protected void end() {
+	protected void end()
+	{
 	}
 
-	protected void interrupted() {
+	protected void interrupted()
+	{
 	}
 
 }

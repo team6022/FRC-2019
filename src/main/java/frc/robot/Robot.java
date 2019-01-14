@@ -30,7 +30,8 @@ import frc.robot.subsystems.RhinoTracks;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot
+{
 
 	public static OI OI;
 	public static VelcroPistons VelcroPistons;
@@ -46,9 +47,10 @@ public class Robot extends IterativeRobot {
 	 * for any initialization code.
 	 */
 
-	public void robotInit() {
+	public void robotInit()
+	{
 
-		//ShuffleDashboard Sets
+		// ShuffleDashboard Sets
 		SmartDashboard.setDefaultBoolean("isVelcroPistonOut", false);
 
 		SmartDashboard.setDefaultNumber("getY", 0);
@@ -83,11 +85,13 @@ public class Robot extends IterativeRobot {
 	 * can use it to reset any subsystem information you want to clear when the
 	 * robot is disabled.
 	 */
-	public void disabledInit() {
+	public void disabledInit()
+	{
 
 	}
 
-	public void disabledPeriodic() {
+	public void disabledPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
@@ -119,11 +123,13 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during autonomous
 	 */
-	public void autonomousPeriodic() {
+	public void autonomousPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
-	public void teleopInit() {
+	public void teleopInit()
+	{
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -135,22 +141,23 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
-	public void teleopPeriodic() {
+	public void teleopPeriodic()
+	{
 		Scheduler.getInstance().run();
 	}
 
 	/**
 	 * This function is called periodically during test mode
 	 */
-	public void testPeriodic() {
+	public void testPeriodic()
+	{
 		// LiveWindow.run();
 	}
 
-	public void operatorControl() {
-
+	public void operatorControl()
+	{
 		while (isOperatorControl() && isEnabled())
 		{
-
 			Timer.delay(0.005);
 		}
 	}

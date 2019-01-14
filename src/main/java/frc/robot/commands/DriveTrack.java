@@ -3,7 +3,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class DriveTrack extends Command {
+public class DriveTrack extends Command
+{
 
 	public DriveTrack()
 	{
@@ -19,14 +20,17 @@ public class DriveTrack extends Command {
         Robot.RhinoTracks.Drive(Robot.OI.getJoystickBran());
 	}
 
-	protected boolean isFinished() {
+	protected boolean isFinished()
+	{
 		return true;
 	}
 
-	protected void end() {
+	protected void end()
+	{
 	}
 
-	protected void interrupted() {
+	protected void interrupted()
+	{
 	}
 
 }

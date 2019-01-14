@@ -4,7 +4,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class VelcroPistonsToggle extends Command {
+public class VelcroPistonsToggle extends Command
+{
 
 	public VelcroPistonsToggle()
 	{
@@ -13,30 +14,33 @@ public class VelcroPistonsToggle extends Command {
 
 	protected void initialize()
 	{
-        
+
 	}
 
 	protected void execute()
 	{
-        Robot.VelcroPistons.PistonOut(Robot.OI.getJoystickBran());
-        SmartDashboard.putBoolean("isVelcroPistonOut", true);
+		Robot.VelcroPistons.PistonOut(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("isVelcroPistonOut", true);
 	}
 
-	protected boolean isFinished() {
+	protected boolean isFinished()
+	{
 		return true;
 	}
 
-	protected void end() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Robot.VelcroPistons.PistonIn(Robot.OI.getJoystickBran());
-        SmartDashboard.putBoolean("isVelcroPistonOut", false);
+	protected void end()
+	{
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Robot.VelcroPistons.PistonIn(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("isVelcroPistonOut", false);
 	}
 
-	protected void interrupted() {
+	protected void interrupted()
+	{
 	}
 
 }
