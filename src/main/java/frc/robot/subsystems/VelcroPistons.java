@@ -9,9 +9,6 @@ public class VelcroPistons extends Subsystem {
 
 	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(0, 1);
 
-	public double ExpotentialY;
-	public double ExpotentialX = 1;
-
 	public VelcroPistons()
 	{
 		super();
