@@ -15,7 +15,7 @@ public class OI
 	public OI()
 	{
 		button1.whenPressed(new VelcroPistonsToggle());
-		//button2.whenPressed(new VelcroPistonsIn());
+		// button2.whenPressed(new VelcroPistonsIn());
 	}
 
 	public Joystick getJoystickBran()

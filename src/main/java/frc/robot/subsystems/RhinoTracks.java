@@ -3,18 +3,17 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.RobotMap;
 import frc.robot.commands.DriveTrack;
 import edu.wpi.first.wpilibj.*;
 
 
 public class RhinoTracks extends Subsystem {
 
-	static VictorSP SP1 = new VictorSP(0);
-	static VictorSP SP2 = new VictorSP(1);
-	static VictorSP SP3 = new VictorSP(2);
-	static VictorSP SP4 = new VictorSP(3);
-
-
+	static VictorSP SP1 = new VictorSP(RobotMap.SP1Channel);
+	static VictorSP SP2 = new VictorSP(RobotMap.SP2Channel);
+	static VictorSP SP3 = new VictorSP(RobotMap.SP3Channel);
+	static VictorSP SP4 = new VictorSP(RobotMap.SP4Channel);
 
 	public RhinoTracks()
 	{
