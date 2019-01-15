@@ -50,9 +50,8 @@ public class Robot extends IterativeRobot
 	public void robotInit()
 	{
 
-		// ShuffleDashboard Sets
+		// ShuffleBoard Sets
 		SmartDashboard.setDefaultBoolean("isVelcroPistonOut", false);
-
 		SmartDashboard.setDefaultNumber("victorSP1", 0);
 		SmartDashboard.setDefaultNumber("victorSP2", 0);
 		SmartDashboard.setDefaultNumber("victorSP3", 0);
@@ -60,8 +59,8 @@ public class Robot extends IterativeRobot
 
 
 		// starts and streams camera data
-		CameraServer.getInstance().startAutomaticCapture();
-		CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture(0);
+
 
 		// this will return a string from the "Game Data" field in the Driver Station
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -70,14 +69,8 @@ public class Robot extends IterativeRobot
 		// loads robots controls
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
-		OI = new OI();
-		// keep OI() at the bottom
+		OI = new OI(); // keep OI() at the bottom
 
-		// chooser = new SendableChooser();
-		// chooser.addDefault("Default Auto", new NaturalDrive());
-		// //chooser.addDefault("Default Auto", new Swiveling());
-		// chooser.addObject("My Auto", new Auto(gameData));
-		// SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -108,14 +101,8 @@ public class Robot extends IterativeRobot
 	 */
 	public void autonomousInit()
 	{
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		// autonomousCommand = (Command) chooser.getSelected();
-
 		autonomousCommand.start();
 
-		// autonomousCommand = new Auto(gameData);
-
-		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
