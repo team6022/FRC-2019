@@ -7,7 +7,9 @@ This is the robot code for the 2019 FRC game.
 
 
 ## How to Deploy Code
-*to do*
-
+1. Click three dots in the top right corner
+2. Click Deploy Code
+3. Hotkey is Shift + F5
 ## Contributors
-*to do*
+ - Adam Larson
+ - Riley Millam
