@@ -51,7 +51,8 @@ public class Robot extends IterativeRobot
 	{
 
 		// ShuffleBoard Sets
-		SmartDashboard.setDefaultBoolean("isVelcroPistonOut", false);
+		SmartDashboard.setDefaultBoolean("isVelcroPistonLeftOut", false);
+		SmartDashboard.setDefaultBoolean("isVelcroPistonRightOut", false);
 		SmartDashboard.setDefaultNumber("victorSP1", 0);
 		SmartDashboard.setDefaultNumber("victorSP2", 0);
 		SmartDashboard.setDefaultNumber("victorSP3", 0);

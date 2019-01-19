@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.*;
 
 public class VelcroPistons extends Subsystem {
 
-	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.VelcroPistonsForwardChannel, RobotMap.VelcroPistonsReverseChannel);
+	static DoubleSolenoid doubleSolenoidLeft = new DoubleSolenoid(RobotMap.VelcroPistonsLeftForwardChannel, RobotMap.VelcroPistonsLeftReverseChannel);
+	static DoubleSolenoid doubleSolenoidRight = new DoubleSolenoid(RobotMap.VelcroPistonsRightForwardChannel, RobotMap.VelcroPistonsRightReverseChannel);
 
 	public VelcroPistons()
 	{
@@ -19,13 +20,15 @@ public class VelcroPistons extends Subsystem {
 
 	}
 
-	public void PistonOut(Joystick Branjoy)
+	public void PistonsOut(Joystick Branjoy)
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		doubleSolenoidLeft.set(DoubleSolenoid.Value.kForward);
+		doubleSolenoidRight.set(DoubleSolenoid.Value.kForward);
 	}
 
-	public void PistonIn(Joystick Branjoy)
+	public void PistonsIn(Joystick Branjoy)
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+		doubleSolenoidLeft.set(DoubleSolenoid.Value.kReverse);
+		doubleSolenoidRight.set(DoubleSolenoid.Value.kReverse);
 	}
 }

@@ -36,7 +36,6 @@ public class RhinoTracks extends Subsystem {
 			SP3.set(Branjoy.getY() * speed);
 			SP4.set(Branjoy.getY() * speed);
 		} else {
-
 			SP1.set(Branjoy.getX() * speed);
 			SP2.set(Branjoy.getX() * speed);
 			SP3.set(Branjoy.getX() * speed);

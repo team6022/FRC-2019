@@ -17,7 +17,9 @@ public class RobotMap
 
 
 	// VelcroPistons Channels
-	public static final int VelcroPistonsForwardChannel = 0;
-	public static final int VelcroPistonsReverseChannel = 1;
+	public static final int VelcroPistonsLeftForwardChannel = 0;
+	public static final int VelcroPistonsLeftReverseChannel = 1;
+	public static final int VelcroPistonsRightForwardChannel = 2;
+	public static final int VelcroPistonsRightReverseChannel = 3;
 
 }

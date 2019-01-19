@@ -19,8 +19,9 @@ public class VelcroPistonsToggle extends Command
 
 	protected void execute()
 	{
-		Robot.VelcroPistons.PistonOut(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("isVelcroPistonOut", true);
+		Robot.VelcroPistons.PistonsOut(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("isVelcroPistonLeftOut", true);
+		SmartDashboard.putBoolean("isVelcroPistonRightOut", true);
 	}
 
 	protected boolean isFinished()
@@ -35,8 +36,9 @@ public class VelcroPistonsToggle extends Command
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Robot.VelcroPistons.PistonIn(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("isVelcroPistonOut", false);
+		Robot.VelcroPistons.PistonsIn(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("isVelcroPistonLeftOut", false);
+		SmartDashboard.putBoolean("isVelcroPistonRightOut", false);
 	}
 
 	protected void interrupted()
