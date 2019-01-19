@@ -1,6 +1,7 @@
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2019.2.1"
+    id 'org.hidetake.ssh' version '2.9.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -62,3 +63,59 @@ jar {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
 }
+
+
+// raspberrypi deployment script - for sure a work in progress
+// shoutout to team 997 for the amazing references
+// https://github.com/Team997Coders/BB2018BallFindingVision/blob/master/build.gradle
+
+// remotes {
+//     piccb {
+//         host = 'lakitu.local'
+//         user = 'pi'
+//         password = 'raspberry'
+//     }
+// }
+
+// ssh.settings {
+//     knownHosts = allowAnyHosts
+//     fileTransfer = 'scp'
+// }
+
+// task raspibuild {
+//     ssh.run {
+//         session(remotes.piccb) {
+//             // Install dependencies
+//             // This should bring up this project from a fresh raspbian install.
+//             // You must have ssh installed first using `sudo raspi-config`.
+//             // Will this work on the robo-rio?
+//             // Doubt it...don't know...must test.
+//             try {
+//                 // this little trick will quickly determine if we are connected
+//                 // to the internet and will throw an error if not
+//                 execute 'nc -z 8.8.8.8 53'
+//                 executeSudo 'apt-get --assume-yes update'
+//                 executeSudo 'apt-get --assume-yes install dos2unix'
+//                 executeSudo 'apt-get --assume-yes install python3'
+//                 executeSudo 'apt-get --assume-yes install python3-pip'
+//                 executeSudo 'apt-get --assume-yes install oracle-java8-jdk'
+//                 executeSudo 'apt-get --assume-yes install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools'
+//             } catch (Exception e)
+//             {
+//                 println "Could not install dependencies.  Connected to Internet?"
+//             }
+//             // Now copy the build
+//             execute 'mkdir -p /home/pi/bin'
+//             execute 'mkdir -p /home/pi/sw'
+
+//             // put from: fileTree(binDirectory).matching { exclude 'python/**'}, into: '/home/pi/bin'
+//             // put from: fileTree(dir: "${rootProject.projectDir}/CameraServer/build/python/dist"), into: '/home/pi/sw'
+//             // put from: fileTree(dir: "${rootProject.projectDir}/NTSimulator/build/python/dist"), into: '/home/pi/sw'
+
+//             // Install the build
+//             // execute 'pip3 install -U --find-links file:///home/pi/sw ntserver ipcamera'
+//             // execute 'chmod u+x /home/pi/bin/*.sh'
+//             // execute 'dos2unix /home/pi/bin/*.sh'
+//         }
+//     }
+// }
