@@ -29,13 +29,16 @@ public class RhinoTracks extends Subsystem {
 	{
 		Double speed = 1.0;
 
+		// check to see if we need to be turning left or right
 		if (Branjoy.getY() >= .30 || Branjoy.getY() <= -.30)
 		{
-			SP1.set(Branjoy.getY() * speed/5);
-			SP2.set(Branjoy.getY() * speed/5);
-			SP3.set(-Branjoy.getY() * speed/5);
-			SP4.set(-Branjoy.getY() * speed/5);
+			// not turning
+			SP1.set(Branjoy.getY() * speed / 2);
+			SP2.set(Branjoy.getY() * speed / 2);
+			SP3.set(-Branjoy.getY() * speed / 2);
+			SP4.set(-Branjoy.getY() * speed / 2);
 		} else {
+			// turning
 			SP1.set(Branjoy.getX() * speed);
 			SP2.set(Branjoy.getX() * speed);
 			SP3.set(Branjoy.getX() * speed);
