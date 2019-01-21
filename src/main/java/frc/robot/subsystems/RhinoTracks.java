@@ -29,12 +29,12 @@ public class RhinoTracks extends Subsystem {
 	{
 		Double speed = 1.0;
 
-		if (Branjoy.getY() >= .15 || Branjoy.getY() <= -.15)
+		if (Branjoy.getY() >= .30 || Branjoy.getY() <= -.30)
 		{
-			SP1.set(-Branjoy.getY() * speed);
-			SP2.set(-Branjoy.getY() * speed);
-			SP3.set(Branjoy.getY() * speed);
-			SP4.set(Branjoy.getY() * speed);
+			SP1.set(Branjoy.getY() * speed/5);
+			SP2.set(Branjoy.getY() * speed/5);
+			SP3.set(-Branjoy.getY() * speed/5);
+			SP4.set(-Branjoy.getY() * speed/5);
 		} else {
 			SP1.set(Branjoy.getX() * speed);
 			SP2.set(Branjoy.getX() * speed);
@@ -42,9 +42,9 @@ public class RhinoTracks extends Subsystem {
 			SP4.set(Branjoy.getX() * speed);
 		}
 
-		SmartDashboard.putNumber("victorSP1", SP1.get());
-		SmartDashboard.putNumber("victorSP2", SP2.get());
-		SmartDashboard.putNumber("victorSP3", -SP3.get());
-		SmartDashboard.putNumber("victorSP4", -SP4.get());
+		SmartDashboard.putNumber("victorSP1", -SP1.get());
+		SmartDashboard.putNumber("victorSP2", -SP2.get());
+		SmartDashboard.putNumber("victorSP3", SP3.get());
+		SmartDashboard.putNumber("victorSP4", SP4.get());
 	}
 }
