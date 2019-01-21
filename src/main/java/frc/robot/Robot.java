@@ -1,7 +1,7 @@
 package frc.robot;
 
 //import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.*;//"IterativeRobot";
+import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -30,7 +30,7 @@ import frc.robot.subsystems.RhinoTracks;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot
+public class Robot extends TimedRobot
 {
 
 	public static OI OI;
@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot
 
 
 		// starts and streams camera data
-		CameraServer.getInstance().startAutomaticCapture(0);
+		//CameraServer.getInstance().startAutomaticCapture(0);
 
 
 		// this will return a string from the "Game Data" field in the Driver Station

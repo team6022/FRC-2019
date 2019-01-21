@@ -9,6 +9,7 @@ import frc.robot.commands.*;
 public class OI
 {
 	final Joystick Branjoy = new Joystick(0);
+	final Joystick Hank = new Joystick(1);
 	Button button1 = new JoystickButton(Branjoy, 1);
 	Button button2 = new JoystickButton(Branjoy, 2);
 
@@ -21,5 +22,10 @@ public class OI
 	public Joystick getJoystickBran()
 	{
 		return Branjoy;
+	}
+
+	public Joystick getJoystickHank()
+	{
+		return Hank;
 	}
 }
