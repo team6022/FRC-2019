@@ -17,7 +17,7 @@ public class ArmSwivel extends Command
 
 	protected void execute()
 	{
-        Robot.RhinoTracks.Drive(Robot.OI.getJoystickBran());
+		Robot.RhinoTracks.Drive(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()
