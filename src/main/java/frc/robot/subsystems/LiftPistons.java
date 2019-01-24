@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.*;
 
-public class VelcroPistons extends Subsystem {
+public class LiftPistons extends Subsystem {
 
 	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.VelcroPistonsLeftForwardChannel, RobotMap.VelcroPistonsLeftReverseChannel);
 
-	public VelcroPistons()
+	public LiftPistons()
 	{
 		super();
 	}

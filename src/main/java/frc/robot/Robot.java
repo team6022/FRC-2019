@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.VelcroPistons;
 import frc.robot.subsystems.RhinoTracks;
+import frc.robot.subsystems.LiftPistons;
 
 //import org.opencv.imgproc.Imgproc;
 //import edu.wpi.cscore.CvSource;
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot
 	public static OI OI;
 	public static VelcroPistons VelcroPistons;
 	public static RhinoTracks RhinoTracks;
+	public static LiftPistons LiftPistons;
 
 	public String gameData;
 
@@ -51,8 +53,8 @@ public class Robot extends TimedRobot
 	{
 
 		// ShuffleBoard Sets
-		SmartDashboard.setDefaultBoolean("isVelcroPistonLeftOut", false);
-		SmartDashboard.setDefaultBoolean("isVelcroPistonRightOut", false);
+		SmartDashboard.setDefaultBoolean("areVelcroPistonOut", false);
+		SmartDashboard.setDefaultBoolean("areVelcroPistonsOut", false);
 		SmartDashboard.setDefaultNumber("victorSP1", 0);
 		SmartDashboard.setDefaultNumber("victorSP2", 0);
 		SmartDashboard.setDefaultNumber("victorSP3", 0);
@@ -70,6 +72,7 @@ public class Robot extends TimedRobot
 		// loads robots controls
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
+		LiftPistons = new LiftPistons();
 		OI = new OI(); // keep OI() at the bottom
 
 	}
