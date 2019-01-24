@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class VelcroPistonsToggle extends Command
+public class LiftPistonsIn extends Command
 {
 
-	public VelcroPistonsToggle()
+	public LiftPistonsIn()
 	{
 		requires(Robot.VelcroPistons);
 	}
