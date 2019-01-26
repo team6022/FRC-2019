@@ -28,15 +28,16 @@ public class RhinoTracks extends Subsystem {
 	public void Drive(Joystick Branjoy)
 	{
 		Double speed = 1.0;
+		Double maxSpeed = 1.0; // percentage
 
 		// check to see if we need to be turning left or right
 		if (Branjoy.getY() >= .30 || Branjoy.getY() <= -.30)
 		{
 			// not turning
-			SP1.set(Branjoy.getY() * speed / 2);
-			SP2.set(Branjoy.getY() * speed / 2);
-			SP3.set(-Branjoy.getY() * speed / 2);
-			SP4.set(-Branjoy.getY() * speed / 2);
+			SP1.set((Branjoy.getY() * speed) * maxSpeed);
+			SP2.set((Branjoy.getY() * speed) * maxSpeed);
+			SP3.set((-Branjoy.getY() * speed) * maxSpeed);
+			SP4.set((-Branjoy.getY() * speed) * maxSpeed);
 		} else {
 			// turning
 			SP1.set(Branjoy.getX() * speed);
