@@ -12,7 +12,13 @@ import cv2
 import imutils
 import time
 
-cap = cv2.VideoCapture(0)
+NetworkTables.initialize()
+sd = NetworkTables.getTable("SmartDashboard")
+i = 0
+
+
+# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('http://10.60.22.2:1181/stream.mjpg')
 # cap = cv2.VideoCapture('http://lakitu.local:8081')
 
 # tape width = 2in - 50.8mm
@@ -21,6 +27,7 @@ cap = cv2.VideoCapture(0)
 distance = 6.25
 
 while(True):
+
 
     # Capture frame-by-frame
     ret, frame = cap.read()
@@ -60,6 +67,8 @@ while(True):
     frame = cv2.putText(frame, "Contours: %d" % len(
         contours), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
     # frame = cv2.putText(frame, "distance: %d mm" % (w * distance), (10,60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
+    sd.putNumber("Contours", len(contours))
+
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
