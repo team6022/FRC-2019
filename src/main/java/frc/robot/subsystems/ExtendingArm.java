@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.*;
 
+/**
+ * Add description here
+ */
 public class ExtendingArm extends Subsystem {
 
 	static VictorSP LowerArm = new VictorSP(RobotMap.LowerArm);
