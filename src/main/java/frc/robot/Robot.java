@@ -6,23 +6,11 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-// import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-// import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.subsystems.VelcroPistons;
 import frc.robot.subsystems.ExtendingArm;
 import frc.robot.subsystems.RhinoTracks;
 import frc.robot.subsystems.LiftPistons;
-
-//import org.opencv.imgproc.Imgproc;
-//import edu.wpi.cscore.CvSource;
-//import edu.wpi.cscore.UsbCamera;
-
-// open cv things
-//import org.opencv.core.Core;
-//import org.opencv.core.CvType;
-//import org.opencv.core.CvSink;
-//import org.opencv.core.Mat;
 
 
 /**
@@ -64,7 +52,7 @@ public class Robot extends TimedRobot
 
 
 		// starts and streams camera data
-		//CameraServer.getInstance().startAutomaticCapture(0);
+		CameraServer.getInstance().startAutomaticCapture(0);
 
 
 		// this will return a string from the "Game Data" field in the Driver Station

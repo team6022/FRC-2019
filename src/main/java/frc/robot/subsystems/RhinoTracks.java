@@ -1,13 +1,16 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveTrack;
-import edu.wpi.first.wpilibj.*;
 
 
+/**
+ * Add description here
+ */
 public class RhinoTracks extends Subsystem {
 
 	static VictorSP SP1 = new VictorSP(RobotMap.SP1Channel);
@@ -27,23 +30,23 @@ public class RhinoTracks extends Subsystem {
 
 	public void Drive(Joystick Branjoy)
 	{
-		Double speed = 1.0;
-		Double maxSpeed = 1.0; // percentage
+		Double speedDrive = 1.0;
+		Double speedTurn = 1.0;
 
 		// check to see if we need to be turning left or right
 		if (Branjoy.getY() >= .30 || Branjoy.getY() <= -.30)
 		{
-			// not turning
-			SP1.set((Branjoy.getY() * speed) * maxSpeed);
-			SP2.set((Branjoy.getY() * speed) * maxSpeed);
-			SP3.set((-Branjoy.getY() * speed) * maxSpeed);
-			SP4.set((-Branjoy.getY() * speed) * maxSpeed);
+			// driving
+			SP1.set(Branjoy.getY() * speedDrive);
+			SP2.set(Branjoy.getY() * speedDrive);
+			SP3.set(-Branjoy.getY() * speedDrive);
+			SP4.set(-Branjoy.getY() * speedDrive);
 		} else {
 			// turning
-			SP1.set(Branjoy.getX() * speed);
-			SP2.set(Branjoy.getX() * speed);
-			SP3.set(Branjoy.getX() * speed);
-			SP4.set(Branjoy.getX() * speed);
+			SP1.set(Branjoy.getX() * speedTurn);
+			SP2.set(Branjoy.getX() * speedTurn);
+			SP3.set(Branjoy.getX() * speedTurn);
+			SP4.set(Branjoy.getX() * speedTurn);
 		}
 
 		SmartDashboard.putNumber("victorSP1", -SP1.get());
