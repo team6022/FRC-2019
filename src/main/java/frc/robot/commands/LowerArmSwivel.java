@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ArmSwivel extends Command
+public class LowerArmSwivel extends Command
 {
 
-	public ArmSwivel()
+	public LowerArmSwivel()
 	{
 		requires(Robot.RhinoTracks);
 	}
@@ -17,7 +17,7 @@ public class ArmSwivel extends Command
 
 	protected void execute()
 	{
-		Robot.RhinoTracks.Drive(Robot.OI.getJoystickBran());
+		Robot.ExtendingArm.MoveLowerArm(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()

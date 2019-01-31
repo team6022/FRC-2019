@@ -1,6 +1,6 @@
 package frc.robot;
 
-//import edu.wpi.cscore.UsbCamera;
+// import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 // import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.VelcroPistons;
+import frc.robot.subsystems.ExtendingArm;
 import frc.robot.subsystems.RhinoTracks;
 import frc.robot.subsystems.LiftPistons;
 
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot
 	public static OI OI;
 	public static VelcroPistons VelcroPistons;
 	public static RhinoTracks RhinoTracks;
+	public static ExtendingArm ExtendingArm;
 	public static LiftPistons LiftPistons;
 
 	public String gameData;
@@ -72,7 +74,7 @@ public class Robot extends TimedRobot
 		// loads robots controls
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
-		LiftPistons = new LiftPistons();
+		// LiftPistons = new LiftPistons();
 		OI = new OI(); // keep OI() at the bottom
 
 	}
