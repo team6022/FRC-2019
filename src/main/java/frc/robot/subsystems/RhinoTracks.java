@@ -9,9 +9,10 @@ import frc.robot.commands.DriveTrack;
 
 
 /**
- * Add description here
- */
-public class RhinoTracks extends Subsystem {
+* Controls all RhinoTrack driving
+*/
+public class RhinoTracks extends Subsystem
+{
 
 	static VictorSP SP1 = new VictorSP(RobotMap.SP1Channel);
 	static VictorSP SP2 = new VictorSP(RobotMap.SP2Channel);
@@ -28,30 +29,63 @@ public class RhinoTracks extends Subsystem {
 		setDefaultCommand(new DriveTrack());
 	}
 
-	public void Drive(Joystick Branjoy)
+
+	/**
+	* DriveJoystick allows for driving capabilities using the Joystick input.
+	*/
+	public void DriveJoystick(Joystick Branjoy)
 	{
 		Double speedDrive = 1.0;
 		Double speedTurn = 1.0;
+		Double turnThreshhold = 0.30;
 
 		// check to see if we need to be turning left or right
-		if (Branjoy.getY() >= .30 || Branjoy.getY() <= -.30)
-		{
-			// driving
-			SP1.set(Branjoy.getY() * speedDrive);
-			SP2.set(Branjoy.getY() * speedDrive);
-			SP3.set(-Branjoy.getY() * speedDrive);
-			SP4.set(-Branjoy.getY() * speedDrive);
+		if (Branjoy.getY() >= turnThreshhold || Branjoy.getY() <= -turnThreshhold) {
+			Drive(Branjoy.getY() * speedDrive);
 		} else {
-			// turning
-			SP1.set(Branjoy.getX() * speedTurn);
-			SP2.set(Branjoy.getX() * speedTurn);
-			SP3.set(Branjoy.getX() * speedTurn);
-			SP4.set(Branjoy.getX() * speedTurn);
+			Turn(Branjoy.getX() * speedTurn);
 		}
 
+	}
+
+	/**
+	* Drive moves the robot forwards or backwards
+	*
+	* @param speed how fast to go - Positive speed means forward, negative means backwards
+	*/
+	public void Drive(Double speed)
+	{
+		SP1.set(speed);
+		SP2.set(speed);
+		SP3.set(-speed);
+		SP4.set(-speed);
+
+		UpdateSmartDashboard();
+	}
+
+	/**
+	* Turn moves the robot forwards or backwards
+	*
+	* @param speed what direction to turn - Positive speed means left, negative means right
+	*/
+	public void Turn(Double speed)
+	{
+		SP1.set(speed);
+		SP2.set(speed);
+		SP3.set(speed);
+		SP4.set(speed);
+
+		UpdateSmartDashboard();
+	}
+
+	/**
+	* Makes sure the {@link SmartDashboard} is updated with the latest victorSP values
+	*/
+	private void UpdateSmartDashboard() {
 		SmartDashboard.putNumber("victorSP1", -SP1.get());
 		SmartDashboard.putNumber("victorSP2", -SP2.get());
 		SmartDashboard.putNumber("victorSP3", SP3.get());
 		SmartDashboard.putNumber("victorSP4", SP4.get());
 	}
+
 }

@@ -20,7 +20,7 @@ public class DriveTrack extends Command
 
 	protected void execute()
 	{
-		Robot.RhinoTracks.Drive(Robot.OI.getJoystickBran());
+		Robot.RhinoTracks.DriveJoystick(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()
