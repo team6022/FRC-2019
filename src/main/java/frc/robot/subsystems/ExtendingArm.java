@@ -10,8 +10,12 @@ import edu.wpi.first.wpilibj.*;
  */
 public class ExtendingArm extends Subsystem {
 
-	static VictorSP LowerArm = new VictorSP(RobotMap.LowerArm);
-	static VictorSP UpperArm = new VictorSP(RobotMap.UpperArm);
+	static Talon LowerArmLeft = new Talon(RobotMap.LowerArmLeft);
+	static Talon LowerArmRight = new Talon(RobotMap.LowerArmRight);
+	static Talon UpperArmLeft = new Talon(RobotMap.UpperArmLeft);
+	static Talon UpperArmRight = new Talon(RobotMap.UpperArmRight);
+
+	static Encoder LowerEncoder =  new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 
 	public ExtendingArm()
 	{
@@ -25,11 +29,15 @@ public class ExtendingArm extends Subsystem {
 
 	public void MoveLowerArm(Joystick Branjoy)
 	{
-		LowerArm.set(0.5);
+		LowerEncoder.reset();
+		LowerArmLeft.set(0.5);
+		LowerArmRight.set(0.5);
+		System.out.println(LowerEncoder.get());
 	}
 
 	public void MoveUpperArm(Joystick Branjoy)
 	{
-		UpperArm.set(0.5);
+		UpperArmLeft.set(0.5);
+		UpperArmRight.set(0.5);
 	}
 }
