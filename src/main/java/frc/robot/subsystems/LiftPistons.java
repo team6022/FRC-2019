@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.*;
  */
 public class LiftPistons extends Subsystem {
 
-	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.VelcroPistonsLeftForwardChannel, RobotMap.VelcroPistonsLeftReverseChannel);
+	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.LiftPistonsForwardChannel, RobotMap.LiftPistonsReverseChannel);
 
 	public LiftPistons()
 	{
