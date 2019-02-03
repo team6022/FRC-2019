@@ -45,6 +45,8 @@ public class VisionAlign extends Command
 	{
 
 
+		// had to add this try for now because centerx is an array an might not contain any values
+		// this should probably get updated in the future
 		try {
 
 			System.out.println(centerX[0]);
