@@ -66,7 +66,7 @@ public class RhinoTracks extends Subsystem
 	/**
 	* Turn moves the robot forwards or backwards
 	*
-	* @param speed what direction to turn - Positive speed means left, negative means right
+	* @param speed what direction to turn - Positive speed means right, negative means left
 	*/
 	public void Turn(Double speed)
 	{

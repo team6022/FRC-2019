@@ -13,12 +13,15 @@ public class OI
 	Button button1 = new JoystickButton(Branjoy, 1);
 	Button button3 = new JoystickButton(Branjoy, 3);
 	Button button4 = new JoystickButton(Branjoy, 4);
+	Button button5 = new JoystickButton(Branjoy, 5);
 
 	public OI()
 	{
 		button1.whenPressed(new VelcroPistonsToggle());
 		button3.whenPressed(new LiftPistonsIn());
 		button4.whenPressed(new LiftPistonsOut());
+		button5.whileHeld(new VisionAlign());
+
 	}
 
 	public Joystick getJoystickBran()
