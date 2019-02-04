@@ -13,13 +13,20 @@ public class VisionAlign extends Command
 
 
 	// this is considered the center on the screen
+	// these needs to be a double array because there is the possibility of having multiple targets on the screen
 	double center[] = {75.0};
 
 	// how far off from the center can the target be in pixels before the robot should stop turning
-	double precision = 20.0;
+	double precision = 10.0;
 
-	// how quickly should the robot turn to find the target
-	double turnSpeed = 0.20;
+	// how fast you should turn the robot when it is far from the center
+	double turnSpeedFar = 0.50;
+
+	// how fast you should turn the robot when it is close to the center
+	double turnSpeedClose = 0.25;
+
+	// how many pixels is considered close to the center
+	double closeDistance = 38.0;
 
 
 	NetworkTableInstance inst;
@@ -44,26 +51,33 @@ public class VisionAlign extends Command
 	protected void execute()
 	{
 
-
 		// had to add this try for now because centerx is an array an might not contain any values
-		// this should probably get updated in the future
-		try {
-
-			System.out.println(centerX[0]);
+		if (centerX.length >= 1) {
 
 			// decide if we need to turn left or right.
 			// decrese precision to increase accuracy
 			if (centerX[0] < center[0] - precision) {
-				Robot.RhinoTracks.Turn(-turnSpeed);
+
+				if (centerX[0] < center[0] - closeDistance) {
+					Robot.RhinoTracks.Turn(-turnSpeedFar);
+				} else {
+					Robot.RhinoTracks.Turn(-turnSpeedClose);
+				}
+
+
 			} else if (centerX[0] > center[0] + precision) {
-				Robot.RhinoTracks.Turn(turnSpeed);
+
+				if (centerX[0] > center[0] + closeDistance) {
+					Robot.RhinoTracks.Turn(turnSpeedFar);
+				} else {
+					Robot.RhinoTracks.Turn(turnSpeedClose);
+				}
+
+			} else {
+				// ok we found it, stop looking
+				Robot.RhinoTracks.Turn(0.00);
 			}
-		} catch (Exception e) {
-			//TODO: handle exception
 		}
-
-
-
 
 	}
 
