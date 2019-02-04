@@ -12,21 +12,22 @@ public class VisionAlign extends Command
 {
 
 
-	// this is considered the center on the screen
-	// these needs to be a double array because there is the possibility of having multiple targets on the screen
-	double center[] = {75.0};
+    // this is considered the center on the screen
+    // these needs to be a double array because there is the possibility of having multiple targets on the screen
+    double center[] = {75.0};
 
-	// how far off from the center can the target be in pixels before the robot should stop turning
-	double precision = 10.0;
+    // how far off from the center can the target be in pixels before the robot should stop turning
+    double precision = 10.0;
 
-	// how fast you should turn the robot when it is far from the center
-	double turnSpeedFar = 0.50;
+    // how fast you should turn the robot when it is far from the center
+    double turnSpeedFar = 0.50;
 
-	// how fast you should turn the robot when it is close to the center
-	double turnSpeedClose = 0.25;
+    // how fast you should turn the robot when it is close to the center
+    double turnSpeedClose = 0.25;
 
-	// how many pixels is considered close to the center
-	double closeDistance = 38.0;
+    // how many pixels is considered close to the center
+    double closeDistance = 38.0;
+
 
     NetworkTableInstance inst;
     NetworkTable table;
@@ -63,17 +64,21 @@ public class VisionAlign extends Command
                     Robot.RhinoTracks.Turn(-turnSpeedClose);
                 }
 
-				if (centerX[0] > center[0] + closeDistance) {
-					Robot.RhinoTracks.Turn(turnSpeedFar);
-				} else {
-					Robot.RhinoTracks.Turn(turnSpeedClose);
-				}
 
-			} else {
-				// ok we found it, stop looking
-				Robot.RhinoTracks.Turn(0.00);
-			}
-		}
+            } else if (centerX[0] > center[0] + precision) {
+
+                if (centerX[0] > center[0] + closeDistance) {
+                    Robot.RhinoTracks.Turn(turnSpeedFar);
+                } else {
+                    Robot.RhinoTracks.Turn(turnSpeedClose);
+                }
+
+            } else {
+                // ok we found it, stop looking
+                Robot.RhinoTracks.Turn(0.00);
+            }
+        }
+
     }
 
     protected boolean isFinished()
@@ -87,6 +92,5 @@ public class VisionAlign extends Command
 
     protected void interrupted()
     {
-    }
-
+	}
 }
