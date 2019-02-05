@@ -29,40 +29,40 @@ public class VisionAlign extends Command
 	double closeDistance = 38.0;
 
 
-    NetworkTableInstance inst;
-    NetworkTable table;
-    double[] centerX;
+	NetworkTableInstance inst;
+	NetworkTable table;
+	double[] centerX;
 
-    public VisionAlign()
-    {
-        requires(Robot.RhinoTracks);
-    }
+	public VisionAlign()
+	{
+		requires(Robot.RhinoTracks);
+	}
 
-    protected void initialize()
-    {
-        // pull data from GRIP report
-        inst = NetworkTableInstance.getDefault();
-        table = inst.getTable("GRIP/myContoursReport");
+	protected void initialize()
+	{
+		// pull data from GRIP report
+		inst = NetworkTableInstance.getDefault();
+		table = inst.getTable("GRIP/myContoursReport");
 
-        // get the centerX value, if it can't be found, default to 75 (center)
-        centerX = table.getEntry("centerX").getDoubleArray(center);
-    }
+		// get the centerX value, if it can't be found, default to 75 (center)
+		centerX = table.getEntry("centerX").getDoubleArray(center);
+	}
 
-    protected void execute()
-    {
+	protected void execute()
+	{
 
-        // had to add this try for now because centerx is an array an might not contain any values
-        if (centerX.length >= 1) {
+		// had to add this try for now because centerx is an array an might not contain any values
+		if (centerX.length >= 1) {
 
-            // decide if we need to turn left or right.
-            // decrese precision to increase accuracy
-            if (centerX[0] < center[0] - precision) {
+			// decide if we need to turn left or right.
+			// decrese precision to increase accuracy
+			if (centerX[0] < center[0] - precision) {
 
-                if (centerX[0] < center[0] - closeDistance) {
-                    Robot.RhinoTracks.Turn(-turnSpeedFar);
-                } else {
-                    Robot.RhinoTracks.Turn(-turnSpeedClose);
-                }
+				if (centerX[0] < center[0] - closeDistance) {
+					Robot.RhinoTracks.Turn(-turnSpeedFar);
+				} else {
+					Robot.RhinoTracks.Turn(-turnSpeedClose);
+				}
 
 				if (centerX[0] > center[0] + closeDistance) {
 					Robot.RhinoTracks.Turn(turnSpeedFar);
@@ -70,33 +70,33 @@ public class VisionAlign extends Command
 					Robot.RhinoTracks.Turn(turnSpeedClose);
 				}
 
-            } else if (centerX[0] > center[0] + precision) {
+			} else if (centerX[0] > center[0] + precision) {
 
-                if (centerX[0] > center[0] + closeDistance) {
-                    Robot.RhinoTracks.Turn(turnSpeedFar);
-                } else {
-                    Robot.RhinoTracks.Turn(turnSpeedClose);
-                }
+				if (centerX[0] > center[0] + closeDistance) {
+					Robot.RhinoTracks.Turn(turnSpeedFar);
+				} else {
+					Robot.RhinoTracks.Turn(turnSpeedClose);
+				}
 
-            } else {
-                // ok we found it, stop looking
-                Robot.RhinoTracks.Turn(0.00);
-            }
-        }
+			} else {
+				// ok we found it, stop looking
+				Robot.RhinoTracks.Turn(0.00);
+			}
+		}
 
-    }
+	}
 
-    protected boolean isFinished()
-    {
-        return true;
-    }
+	protected boolean isFinished()
+	{
+		return true;
+	}
 
-    protected void end()
-    {
-    }
+	protected void end()
+	{
+	}
 
-    protected void interrupted()
-    {
-    }
+	protected void interrupted()
+	{
+	}
 
 }
