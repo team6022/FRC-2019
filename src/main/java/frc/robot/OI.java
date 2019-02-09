@@ -19,7 +19,7 @@ public class OI
 	public OI()
 	{
 		button1.whenPressed(new VelcroPistonsToggle());
-		button2.whileHeld(new LowerArmSwivel());
+		button2.whenPressed(new LowerArmSwivel());
 		button3.whenPressed(new LiftPistonsIn());
 		button4.whenPressed(new LiftPistonsOut());
 		button5.whileHeld(new VisionAlign());

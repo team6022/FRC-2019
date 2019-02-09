@@ -29,10 +29,10 @@ public class ExtendingArm extends Subsystem {
 
 	public void MoveLowerArm(Joystick Branjoy)
 	{
-		LowerEncoder.reset();
+		// LowerEncoder.reset();
 		LowerArmLeft.set(0.5);
-		LowerArmRight.set(0.5);
-		System.out.println(LowerEncoder.get());
+		// LowerArmRight.set(0.5);
+		// System.out.println(LowerEncoder.get());
 	}
 
 	public void MoveUpperArm(Joystick Branjoy)
