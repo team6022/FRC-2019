@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.*;
  */
 public class LiftPistons extends Subsystem {
 
-	static DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.LiftPistonsForwardChannel, RobotMap.LiftPistonsReverseChannel);
+	static DoubleSolenoid doubleSolenoid1 = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
+	static DoubleSolenoid doubleSolenoid2 = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
 
 	public LiftPistons()
 	{
@@ -22,13 +23,23 @@ public class LiftPistons extends Subsystem {
 
 	}
 
-	public void PistonsOut(Joystick Branjoy)
+	public void BackPistonsOut(Joystick Branjoy)
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		doubleSolenoid1.set(DoubleSolenoid.Value.kForward);
 	}
 
-	public void PistonsIn(Joystick Branjoy)
+	public void BackPistonsIn(Joystick Branjoy)
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+		doubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+	}
+
+	public void FrontPistonsOut(Joystick Branjoy)
+	{
+		doubleSolenoid2.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void FrontPistonsIn(Joystick Branjoy)
+	{
+		doubleSolenoid2.set(DoubleSolenoid.Value.kReverse);
 	}
 }
