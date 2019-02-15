@@ -64,9 +64,10 @@ public class Robot extends TimedRobot
 
 
 		// loads robots controls
+		ExtendingArm = new ExtendingArm();
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
-		// LiftPistons = new LiftPistons();
+		LiftPistons = new LiftPistons();
 		OI = new OI(); // keep OI() at the bottom
 
 	}

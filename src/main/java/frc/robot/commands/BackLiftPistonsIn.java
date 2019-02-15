@@ -22,7 +22,7 @@ public class BackLiftPistonsIn extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.BackPistonsOut(Robot.OI.getJoystickBran());
+		Robot.LiftPistons.BackPistonsIn(Robot.OI.getJoystickBran());
 		SmartDashboard.putBoolean("BackLiftPistonsOut", false);
 	}
 
