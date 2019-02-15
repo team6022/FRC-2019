@@ -46,10 +46,10 @@ public class Robot extends TimedRobot
 		SmartDashboard.setDefaultBoolean("VelcroPistonsOut", false);
 		SmartDashboard.setDefaultBoolean("FrontLiftPistonsOut", false);
 		SmartDashboard.setDefaultBoolean("BackLiftPistonsOut", false);
-		SmartDashboard.setDefaultNumber("victorSP1", 0);
-		SmartDashboard.setDefaultNumber("victorSP2", 0);
-		SmartDashboard.setDefaultNumber("victorSP3", 0);
-		SmartDashboard.setDefaultNumber("victorSP4", 0);
+		SmartDashboard.setDefaultNumber("victorSP/SP1", 0);
+		SmartDashboard.setDefaultNumber("victorSP/SP2", 0);
+		SmartDashboard.setDefaultNumber("victorSP/SP3", 0);
+		SmartDashboard.setDefaultNumber("victorSP/SP4", 0);
 
 
 		// starts and streams camera data

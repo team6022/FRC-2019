@@ -85,10 +85,10 @@ public class RhinoTracks extends Subsystem
 	* Makes sure the {@link SmartDashboard} is updated with the latest victorSP values
 	*/
 	private void UpdateSmartDashboard() {
-		SmartDashboard.putNumber("victorSP1", -SP1.get());
-		SmartDashboard.putNumber("victorSP2", -SP2.get());
-		SmartDashboard.putNumber("victorSP3", SP3.get());
-		SmartDashboard.putNumber("victorSP4", SP4.get());
+		SmartDashboard.putNumber("victorSP/SP1", -SP1.get());
+		SmartDashboard.putNumber("victorSP/SP2", -SP2.get());
+		SmartDashboard.putNumber("victorSP/SP3", SP3.get());
+		SmartDashboard.putNumber("victorSP/SP4", SP4.get());
 	}
 
 }
