@@ -7,10 +7,10 @@ import frc.robot.Robot;
 /**
  * Add description here
  */
-public class LiftPistonsOut extends Command
+public class FrontLiftPistonsOut extends Command
 {
 
-	public LiftPistonsOut()
+	public FrontLiftPistonsOut()
 	{
 		requires(Robot.VelcroPistons);
 	}
@@ -22,7 +22,7 @@ public class LiftPistonsOut extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.PistonsOut(Robot.OI.getJoystickBran());
+		Robot.LiftPistons.FrontPistonsOut(Robot.OI.getJoystickBran());
 		SmartDashboard.putBoolean("areLiftPistonsOut", true);
 	}
 
