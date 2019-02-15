@@ -22,8 +22,8 @@ public class LiftPistonsOut extends Command
 
 	protected void execute()
 	{
-		Robot.VelcroPistons.PistonsOut(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("areLiftPistonOut", true);
+		Robot.LiftPistons.PistonsOut(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("areLiftPistonsOut", true);
 	}
 
 	protected boolean isFinished()

@@ -22,7 +22,7 @@ public class LiftPistonsIn extends Command
 
 	protected void execute()
 	{
-		Robot.VelcroPistons.PistonsOut(Robot.OI.getJoystickBran());
+		Robot.LiftPistons.PistonsOut(Robot.OI.getJoystickBran());
 		SmartDashboard.putBoolean("areLiftPistonsOut", false);
 	}
 
