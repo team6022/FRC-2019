@@ -43,7 +43,6 @@ public class Robot extends TimedRobot
 	{
 
 		// ShuffleBoard Sets
-		SmartDashboard.setDefaultBoolean("VelcroPistonOut", false);
 		SmartDashboard.setDefaultBoolean("VelcroPistonsOut", false);
 		SmartDashboard.setDefaultBoolean("FrontLiftPistonsOut", false);
 		SmartDashboard.setDefaultBoolean("BackLiftPistonsOut", false);
