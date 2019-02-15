@@ -23,7 +23,7 @@ public class FrontLiftPistonsOut extends Command
 	protected void execute()
 	{
 		Robot.LiftPistons.FrontPistonsOut(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("areLiftPistonsOut", true);
+		SmartDashboard.putBoolean("FrontLiftPistonsOut", true);
 	}
 
 	protected boolean isFinished()
