@@ -12,7 +12,7 @@ public class FrontLiftPistonsIn extends Command
 
 	public FrontLiftPistonsIn()
 	{
-		requires(Robot.VelcroPistons);
+		requires(Robot.LiftPistons);
 	}
 
 	protected void initialize()

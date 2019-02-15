@@ -12,7 +12,7 @@ public class BackLiftPistonsOut extends Command
 
 	public BackLiftPistonsOut()
 	{
-		requires(Robot.VelcroPistons);
+		requires(Robot.LiftPistons);
 	}
 
 	protected void initialize()
