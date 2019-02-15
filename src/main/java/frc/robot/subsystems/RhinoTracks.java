@@ -58,10 +58,10 @@ public class RhinoTracks extends Subsystem
 	*/
 	public void Drive(Double speed)
 	{
-		SP1.set(speed);
-		SP2.set(speed);
-		SP3.set(-speed);
-		SP4.set(-speed);
+		SP1.set(-speed);
+		SP2.set(-speed);
+		SP3.set(speed);
+		SP4.set(speed);
 
 		UpdateSmartDashboard();
 	}
