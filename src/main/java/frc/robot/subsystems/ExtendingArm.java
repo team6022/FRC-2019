@@ -12,10 +12,10 @@ public class ExtendingArm extends Subsystem {
 
 	static Talon LowerArmLeft = new Talon(RobotMap.LowerArmLeft);
 	static Talon LowerArmRight = new Talon(RobotMap.LowerArmRight);
-	static Talon UpperArmLeft = new Talon(RobotMap.UpperArmLeft);
-	static Talon UpperArmRight = new Talon(RobotMap.UpperArmRight);
+	static Talon UpperArm = new Talon(RobotMap.UpperArm);
 
-	static Encoder LowerEncoder =  new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+	static Encoder LowerEncoderL =  new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+	static Encoder LowerEncoderR =  new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 
 	public ExtendingArm()
 	{
@@ -29,15 +29,26 @@ public class ExtendingArm extends Subsystem {
 
 	public void MoveLowerArm(Joystick Branjoy)
 	{
-		// LowerEncoder.reset();
-		LowerArmLeft.set(0.5);
-		// LowerArmRight.set(0.5);
-		// System.out.println(LowerEncoder.get());
+
+		Double speed = 0.40; // you probably don't want to go over 0.40
+
+		LowerEncoderL.reset();
+		LowerArmLeft.set(-speed);
+		LowerArmRight.set(speed);
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
 	}
 
 	public void MoveUpperArm(Joystick Branjoy)
 	{
-		UpperArmLeft.set(0.5);
-		UpperArmRight.set(0.5);
+		UpperArm.set(0.25);
+	}
+
+	public void IntakeBall(Joystick Branjoy)
+	{
+		UpperArm.set(-0.25);
 	}
 }

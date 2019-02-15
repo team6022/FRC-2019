@@ -9,24 +9,31 @@ import frc.robot.commands.*;
 public class OI
 {
 	final Joystick Branjoy = new Joystick(0);
-	final Joystick Hank = new Joystick(1);
-	Button button1 = new JoystickButton(Branjoy, 1); // A
-	Button button2 = new JoystickButton(Branjoy, 2); // B
-	Button button3 = new JoystickButton(Branjoy, 3); // X
-	Button button4 = new JoystickButton(Branjoy, 4); // Y
-	Button button5 = new JoystickButton(Branjoy, 5); // LB
-	Button button6 = new JoystickButton(Branjoy, 6); // RB
-	Button button7 = new JoystickButton(Branjoy, 7); // BACK
+
+	Button XBoxA = new JoystickButton(Branjoy, 1); // A
+	Button XBoxB = new JoystickButton(Branjoy, 2); // B
+	Button XBoxX = new JoystickButton(Branjoy, 3); // X
+	Button XBoxY = new JoystickButton(Branjoy, 4); // Y
+	Button XBoxLB = new JoystickButton(Branjoy, 5); // LB
+	Button XBoxRB = new JoystickButton(Branjoy, 6); // RB
+	Button XBoxBack = new JoystickButton(Branjoy, 7); // BACK
+	Button XBoxStart = new JoystickButton(Branjoy, 8); // START
+
 
 	public OI()
 	{
-		button1.whenPressed(new VelcroPistonsToggle());
-		button2.whenPressed(new LowerArmSwivel());
-		button3.whenPressed(new BackLiftPistonsIn());
-		button4.whenPressed(new BackLiftPistonsOut());
-		button5.whenPressed(new FrontLiftPistonsIn());
-		button6.whenPressed(new FrontLiftPistonsOut());
-		button7.whileHeld(new VisionAlign());
+		XBoxA.whenPressed(new VelcroPistonsToggle());
+		XBoxB.whileHeld(new LowerArmSwivel());
+		XBoxX.whenPressed(new BackLiftPistonsIn());
+		XBoxY.whenPressed(new BackLiftPistonsOut());
+		XBoxLB.whenPressed(new FrontLiftPistonsIn());
+		XBoxRB.whenPressed(new FrontLiftPistonsOut());
+
+		// XBoxBack.whileHeld(new VisionAlign());
+		XBoxBack.whileHeld(new UpperArmSwivel());
+		XBoxStart.whileHeld(new Intake());
+
+
 	}
 
 	public Joystick getJoystickBran()
@@ -34,8 +41,4 @@ public class OI
 		return Branjoy;
 	}
 
-	public Joystick getJoystickHank()
-	{
-		return Hank;
-	}
 }

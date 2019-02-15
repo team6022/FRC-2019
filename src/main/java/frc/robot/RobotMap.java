@@ -14,10 +14,10 @@ public class RobotMap
 	public static final int SP2Channel = 1;
 	public static final int SP3Channel = 2;
 	public static final int SP4Channel = 3;
-	public static final int LowerArmLeft = 4;
-	public static final int LowerArmRight = 5;
-	public static final int UpperArmLeft = 6;
-	public static final int UpperArmRight = 7;
+	public static final int UpperArm = 4;
+	public static final int LowerArmLeft = 5;
+	public static final int LowerArmRight = 6;
+
 
 
 	// VelcroPistons Channels

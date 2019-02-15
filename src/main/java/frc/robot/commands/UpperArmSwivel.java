@@ -8,7 +8,7 @@ public class UpperArmSwivel extends Command
 
 	public UpperArmSwivel()
 	{
-		requires(Robot.RhinoTracks);
+		requires(Robot.ExtendingArm);
 	}
 
 	protected void initialize()
