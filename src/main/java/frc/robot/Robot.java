@@ -53,6 +53,8 @@ public class Robot extends TimedRobot
 
 		// starts and streams camera data
 		CameraServer.getInstance().startAutomaticCapture(0);
+		CameraServer.getInstance().startAutomaticCapture(1);
+
 
 
 		// this will return a string from the "Game Data" field in the Driver Station
