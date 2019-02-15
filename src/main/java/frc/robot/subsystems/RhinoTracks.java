@@ -38,12 +38,15 @@ public class RhinoTracks extends Subsystem
 		Double speedDrive = 1.0;
 		Double speedTurn = 1.0;
 		Double turnThreshhold = 0.30;
+		Double deadzone = 0.19;
 
 		// check to see if we need to be turning left or right
 		if (Branjoy.getY() >= turnThreshhold || Branjoy.getY() <= -turnThreshhold) {
-			Drive(Branjoy.getY() * speedDrive);
+			if (deadzone >= Branjoy.getY() || -deadzone <= Branjoy.getY())
+				Drive(Branjoy.getY() * speedDrive);
 		} else {
-			Turn(Branjoy.getX() * speedTurn);
+			if (deadzone >= Branjoy.getX() || -deadzone <= Branjoy.getX())
+				Turn(Branjoy.getX() * speedTurn);
 		}
 
 	}
