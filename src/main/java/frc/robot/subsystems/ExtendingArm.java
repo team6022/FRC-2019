@@ -33,13 +33,20 @@ public class ExtendingArm extends Subsystem {
 		Double speed = 0.40; // you probably don't want to go over 0.40
 
 		LowerEncoderL.reset();
-		LowerArmLeft.set(-speed);
-		LowerArmRight.set(speed);
 		System.out.println(LowerEncoderL.get());
 		System.out.println(LowerEncoderL.get());
 		System.out.println(LowerEncoderL.get());
 		System.out.println(LowerEncoderL.get());
 		System.out.println(LowerEncoderL.get());
+		System.out.println("---Before Reset---");
+		LowerArmLeft.set(speed);
+		LowerArmRight.set(-speed);
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println(LowerEncoderL.get());
+		System.out.println("---After Reset---");
 	}
 
 	public void MoveUpperArm(Joystick Branjoy)
@@ -47,8 +54,12 @@ public class ExtendingArm extends Subsystem {
 		UpperArm.set(0.25);
 	}
 
-	public void IntakeBall(Joystick Branjoy)
+	public void IntakeBall(Joystick Branjoy, Boolean isForward)
 	{
-		UpperArm.set(-0.25);
+		double speed = 0.25;
+		int direction = -1;
+		if (isForward) direction = 1;
+
+		UpperArm.set(speed * direction);
 	}
 }

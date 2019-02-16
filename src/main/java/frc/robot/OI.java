@@ -30,8 +30,8 @@ public class OI
 		XBoxRB.whenPressed(new FrontLiftPistonsOut());
 
 		// XBoxBack.whileHeld(new VisionAlign());
-		XBoxBack.whileHeld(new UpperArmSwivel());
-		XBoxStart.whileHeld(new Intake());
+		XBoxBack.whileHeld(new Intake(false));
+		XBoxStart.whileHeld(new Intake(true));
 
 
 	}

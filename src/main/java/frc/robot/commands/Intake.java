@@ -6,8 +6,12 @@ import frc.robot.Robot;
 public class Intake extends Command
 {
 
-	public Intake()
+	Boolean _isForward = false;
+
+
+	public Intake(Boolean isForward)
 	{
+		_isForward = isForward;
 		requires(Robot.ExtendingArm);
 	}
 
@@ -17,7 +21,7 @@ public class Intake extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.IntakeBall(Robot.OI.getJoystickBran());
+		Robot.ExtendingArm.IntakeBall(Robot.OI.getJoystickBran(), _isForward);
 	}
 
 	protected boolean isFinished()
