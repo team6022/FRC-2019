@@ -39,12 +39,12 @@ public class OI
 		// XBoxBack.whileHeld(new VisionAlign());
 
 		// pull ball in
-		XBoxBack.whileHeld(new IntakeRun(0.75));
-		XBoxBack.whenReleased(new IntakeRun(0.0));
+		XBoxBack.whileHeld(new Intake(0.75));
+		XBoxBack.whenReleased(new Intake(0.0));
 
 		// shoot ball out
-		XBoxStart.whileHeld(new IntakeRun(-0.75));
-		XBoxStart.whenReleased(new IntakeRun(0.0));
+		XBoxStart.whileHeld(new Intake(-0.75));
+		XBoxStart.whenReleased(new Intake(0.0));
 
 
 	}

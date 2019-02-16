@@ -11,6 +11,7 @@ import frc.robot.subsystems.VelcroPistons;
 import frc.robot.subsystems.ExtendingArm;
 import frc.robot.subsystems.RhinoTracks;
 import frc.robot.subsystems.LiftPistons;
+import frc.robot.subsystems.Intake;
 
 
 /**
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot
 	public static RhinoTracks RhinoTracks;
 	public static ExtendingArm ExtendingArm;
 	public static LiftPistons LiftPistons;
+	public static Intake Intake;
 
 	public String gameData;
 
@@ -64,6 +66,7 @@ public class Robot extends TimedRobot
 
 		// loads robots controls
 		ExtendingArm = new ExtendingArm();
+		Intake = new Intake();
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
 		LiftPistons = new LiftPistons();

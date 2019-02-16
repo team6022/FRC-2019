@@ -8,16 +8,11 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
-import edu.wpi.first.wpilibj.*;
-
-
 /**
  * Add description here
  */
 public class ExtendingArm extends Subsystem {
 
-
-	static Talon UpperArm = new Talon(RobotMap.UpperArm);
 	static TalonSRX TalonRight = new TalonSRX(RobotMap.LowerArmRight);
 	static TalonSRX TalonLeft = new TalonSRX(RobotMap.LowerArmLeft);
 
@@ -44,15 +39,6 @@ public class ExtendingArm extends Subsystem {
 
 	}
 
-	public void MoveUpperArm(Joystick Branjoy)
-	{
-		UpperArm.set(0.25);
-	}
-
-	public void IntakeBall(Joystick Branjoy, Double speed)
-	{
-		UpperArm.set(speed);
-	}
 
 	public void StopLower(Joystick Branjoy)
 	{
