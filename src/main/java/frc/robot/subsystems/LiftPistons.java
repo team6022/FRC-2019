@@ -4,14 +4,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+
 
 /**
  * Add description here
  */
 public class LiftPistons extends Subsystem {
 
-	static DoubleSolenoid doubleSolenoid1 = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
-	static DoubleSolenoid doubleSolenoid2 = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
+	static DoubleSolenoid DSFront = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
+	static DoubleSolenoid DSBack = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
 
 	public LiftPistons()
 	{
@@ -25,21 +28,26 @@ public class LiftPistons extends Subsystem {
 
 	public void BackPistonsOut(Joystick Branjoy)
 	{
-		doubleSolenoid1.set(DoubleSolenoid.Value.kForward);
+		DSFront.set(DoubleSolenoid.Value.kForward);
+		SmartDashboard.putBoolean("BackLiftPistonsOut", false);
 	}
 
 	public void BackPistonsIn(Joystick Branjoy)
 	{
-		doubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+		DSFront.set(DoubleSolenoid.Value.kReverse);
+		SmartDashboard.putBoolean("BackLiftPistonsOut", true);
+
 	}
 
 	public void FrontPistonsOut(Joystick Branjoy)
 	{
-		doubleSolenoid2.set(DoubleSolenoid.Value.kForward);
+		DSBack.set(DoubleSolenoid.Value.kForward);
+		SmartDashboard.putBoolean("FrontLiftPistonsOut", false);
 	}
 
 	public void FrontPistonsIn(Joystick Branjoy)
 	{
-		doubleSolenoid2.set(DoubleSolenoid.Value.kReverse);
+		DSBack.set(DoubleSolenoid.Value.kReverse);
+		SmartDashboard.putBoolean("FrontLiftPistonsOut", true);
 	}
 }

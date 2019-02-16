@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -23,7 +22,6 @@ public class BackLiftPistonsOut extends Command
 	protected void execute()
 	{
 		Robot.LiftPistons.BackPistonsOut(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("BackLiftPistonsOut", true);
 	}
 
 	protected boolean isFinished()

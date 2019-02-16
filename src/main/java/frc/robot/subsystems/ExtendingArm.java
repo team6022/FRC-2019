@@ -31,9 +31,8 @@ public class ExtendingArm extends Subsystem {
 	{
 
 		Double speed = 0.40; // you probably don't want to go over 0.40
-
-		TalonLeft.setNeutralMode(NeutralMode.Coast);
-		TalonRight.setNeutralMode(NeutralMode.Coast);
+		// TalonLeft.setNeutralMode(NeutralMode.Coast);
+		// TalonRight.setNeutralMode(NeutralMode.Coast);
 		TalonLeft.set(ControlMode.PercentOutput, -speed);
 		TalonRight.set(ControlMode.PercentOutput, speed);
 
@@ -44,7 +43,8 @@ public class ExtendingArm extends Subsystem {
 	{
 		TalonLeft.set(ControlMode.PercentOutput, 0.0);
 		TalonRight.set(ControlMode.PercentOutput, 0.0);
-		TalonLeft.setNeutralMode(NeutralMode.Brake);
-		TalonRight.setNeutralMode(NeutralMode.Brake);
+		// TalonLeft.setNeutralMode(NeutralMode.Brake);
+		// TalonRight.setNeutralMode(NeutralMode.Brake);
+
 	}
 }

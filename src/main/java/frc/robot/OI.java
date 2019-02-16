@@ -30,11 +30,18 @@ public class OI
 		XBoxB.whileHeld(new LowerArmSwivel());
 		XBoxB.whenReleased(new LowerArmStop());
 
-		// pistons
-		XBoxX.whenPressed(new BackLiftPistonsIn());
-		XBoxY.whenPressed(new BackLiftPistonsOut());
+		// lift pistons
+		//in
+		// XBoxX.whenPressed(new BackLiftPistonsIn());
+		// XBoxLB.whenPressed(new FrontLiftPistonsIn());
+		//out
+		// XBoxY.whenPressed(new BackLiftPistonsOut());
+		// XBoxRB.whenPressed(new FrontLiftPistonsOut());
+
 		XBoxLB.whenPressed(new FrontLiftPistonsIn());
-		XBoxRB.whenPressed(new FrontLiftPistonsOut());
+		XBoxLB.whenReleased(new FrontLiftPistonsOut());
+		XBoxRB.whenPressed(new BackLiftPistonsIn());
+		XBoxRB.whenReleased(new BackLiftPistonsOut());
 
 		// XBoxBack.whileHeld(new VisionAlign());
 
