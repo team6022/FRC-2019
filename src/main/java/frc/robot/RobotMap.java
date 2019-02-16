@@ -15,9 +15,6 @@ public class RobotMap
 	public static final int SP3Channel = 2;
 	public static final int SP4Channel = 3;
 	public static final int UpperArm = 4;
-	public static final int LowerArmLeft = 5;
-	public static final int LowerArmRight = 6;
-
 
 
 	// VelcroPistons Channels
@@ -27,5 +24,9 @@ public class RobotMap
 	public static final int BackLiftPistonsReverseChannel = 3;
 	public static final int FrontLiftPistonsForwardChannel = 4;
 	public static final int FrontLiftPistonsReverseChannel = 5;
+
+	// CAN Device
+	public static final int LowerArmRight = 0;
+	public static final int LowerArmLeft = 1;
 
 }

@@ -3,19 +3,24 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.wpilibj.*;
+
 
 /**
  * Add description here
  */
 public class ExtendingArm extends Subsystem {
 
-	static Talon LowerArmLeft = new Talon(RobotMap.LowerArmLeft);
-	static Talon LowerArmRight = new Talon(RobotMap.LowerArmRight);
-	static Talon UpperArm = new Talon(RobotMap.UpperArm);
 
-	static Encoder LowerEncoderL =  new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-	static Encoder LowerEncoderR =  new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+	static Talon UpperArm = new Talon(RobotMap.UpperArm);
+	static TalonSRX TalonRight = new TalonSRX(RobotMap.LowerArmRight);
+	static TalonSRX TalonLeft = new TalonSRX(RobotMap.LowerArmLeft);
+
 
 	public ExtendingArm()
 	{
@@ -32,21 +37,11 @@ public class ExtendingArm extends Subsystem {
 
 		Double speed = 0.40; // you probably don't want to go over 0.40
 
-		LowerEncoderL.reset();
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println("---Before Reset---");
-		LowerArmLeft.set(speed);
-		LowerArmRight.set(-speed);
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println(LowerEncoderL.get());
-		System.out.println("---After Reset---");
+		TalonLeft.setNeutralMode(NeutralMode.Coast);
+		TalonRight.setNeutralMode(NeutralMode.Coast);
+		TalonLeft.set(ControlMode.PercentOutput, -speed);
+		TalonRight.set(ControlMode.PercentOutput, speed);
+
 	}
 
 	public void MoveUpperArm(Joystick Branjoy)
@@ -54,12 +49,16 @@ public class ExtendingArm extends Subsystem {
 		UpperArm.set(0.25);
 	}
 
-	public void IntakeBall(Joystick Branjoy, Boolean isForward)
+	public void IntakeBall(Joystick Branjoy, Double speed)
 	{
-		double speed = 0.25;
-		int direction = -1;
-		if (isForward) direction = 1;
+		UpperArm.set(speed);
+	}
 
-		UpperArm.set(speed * direction);
+	public void StopLower(Joystick Branjoy)
+	{
+		TalonLeft.set(ControlMode.PercentOutput, 0.0);
+		TalonRight.set(ControlMode.PercentOutput, 0.0);
+		TalonLeft.setNeutralMode(NeutralMode.Brake);
+		TalonRight.setNeutralMode(NeutralMode.Brake);
 	}
 }

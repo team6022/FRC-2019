@@ -22,16 +22,29 @@ public class OI
 
 	public OI()
 	{
+
+		// velcro piston
 		XBoxA.whenPressed(new VelcroPistonsToggle());
+
+		// arms
 		XBoxB.whileHeld(new LowerArmSwivel());
+		XBoxB.whenReleased(new LowerArmStop());
+
+		// pistons
 		XBoxX.whenPressed(new BackLiftPistonsIn());
 		XBoxY.whenPressed(new BackLiftPistonsOut());
 		XBoxLB.whenPressed(new FrontLiftPistonsIn());
 		XBoxRB.whenPressed(new FrontLiftPistonsOut());
 
 		// XBoxBack.whileHeld(new VisionAlign());
-		XBoxBack.whileHeld(new Intake(false));
-		XBoxStart.whileHeld(new Intake(true));
+
+		// pull ball in
+		XBoxBack.whileHeld(new IntakeRun(0.75));
+		XBoxBack.whenReleased(new IntakeRun(0.0));
+
+		// shoot ball out
+		XBoxStart.whileHeld(new IntakeRun(-0.75));
+		XBoxStart.whenReleased(new IntakeRun(0.0));
 
 
 	}

@@ -3,15 +3,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class Intake extends Command
+public class IntakeRun extends Command
 {
 
 	Boolean _isForward = false;
+	Double _Speed = 0.0;
 
 
-	public Intake(Boolean isForward)
+	public IntakeRun(Double Speed)
 	{
-		_isForward = isForward;
+		_Speed = Speed;
 		requires(Robot.ExtendingArm);
 	}
 
@@ -21,7 +22,7 @@ public class Intake extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.IntakeBall(Robot.OI.getJoystickBran(), _isForward);
+		Robot.ExtendingArm.IntakeBall(Robot.OI.getJoystickBran(), _Speed);
 	}
 
 	protected boolean isFinished()
