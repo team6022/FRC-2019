@@ -90,7 +90,18 @@
             "content": {
               "_type": "Network Table Tree",
               "_source0": "network_table:///SmartDashboard/victorSP",
-              "_title": "SmartDashboard/victorSP"
+              "_title": "victorSP"
+            },
+            "5,2": {
+              "size": [
+                3,
+                2
+              ],
+              "content": {
+                "_type": "Network Table Tree",
+                "_source0": "network_table:///SmartDashboard/ExtendingArm",
+                "_title": "Extending Arm"
+              }
             }
           }
         }
