@@ -22,7 +22,7 @@ public class VelcroPistons extends Subsystem {
 	}
 
 	/**
-	 * Toggles the front velcro pistons for 1 seciond
+	 * Toggles the front velcro pistons for 1 second
 	 */
 	public void Toggle()
 	{
