@@ -22,7 +22,7 @@ public class Intake extends Subsystem {
 	}
 
 	/**
-	* IntakeBall toggles the back pistons
+	* Intake toggles ball intake
 	*
 	* @param speed what direction to turn - Positive speed means take ball in, negative means shoot ball out
 	*/

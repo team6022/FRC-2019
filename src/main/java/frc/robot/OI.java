@@ -10,15 +10,19 @@ public class OI
 {
 	final Joystick Branjoy = new Joystick(0);
 
-	Button XBoxA = new JoystickButton(Branjoy, 1); // A
-	Button XBoxB = new JoystickButton(Branjoy, 2); // B
-	Button XBoxX = new JoystickButton(Branjoy, 3); // X
-	Button XBoxY = new JoystickButton(Branjoy, 4); // Y
-	Button XBoxLB = new JoystickButton(Branjoy, 5); // LB
-	Button XBoxRB = new JoystickButton(Branjoy, 6); // RB
-	Button XBoxBack = new JoystickButton(Branjoy, 7); // BACK
-	Button XBoxStart = new JoystickButton(Branjoy, 8); // START
+	Button XBoxA = new JoystickButton(Branjoy, 1);
+	Button XBoxB = new JoystickButton(Branjoy, 2);
+	Button XBoxX = new JoystickButton(Branjoy, 3);
+	Button XBoxY = new JoystickButton(Branjoy, 4);
+	Button XBoxLB = new JoystickButton(Branjoy, 5);
+	Button XBoxRB = new JoystickButton(Branjoy, 6);
+	Button XBoxBack = new JoystickButton(Branjoy, 7);
+	Button XBoxStart = new JoystickButton(Branjoy, 8);
 
+	public Joystick getJoystickBran()
+	{
+		return Branjoy;
+	}
 
 	public OI()
 	{
@@ -30,21 +34,13 @@ public class OI
 		XBoxB.whileHeld(new LowerArmSwivel());
 		XBoxB.whenReleased(new LowerArmStop());
 
-		// lift pistons
-		//in
-		// XBoxX.whenPressed(new BackLiftPistonsIn());
-		// XBoxLB.whenPressed(new FrontLiftPistonsIn());
-		//out
-		// XBoxY.whenPressed(new BackLiftPistonsOut());
-		// XBoxRB.whenPressed(new FrontLiftPistonsOut());
-
 		// front lift pistons
-		XBoxLB.whenPressed(new FrontLiftPistonsActive(true));
-		XBoxLB.whenReleased(new FrontLiftPistonsActive(false));
+		XBoxLB.whenPressed(new LiftPistonsActiveFront(true));
+		XBoxLB.whenReleased(new LiftPistonsActiveFront(false));
 
 		// back lisft pistons
-		XBoxRB.whenPressed(new BackLiftPistonsActive(true));
-		XBoxRB.whenReleased(new BackLiftPistonsActive(false));
+		XBoxRB.whenPressed(new LiftPistonsBackActive(true));
+		XBoxRB.whenReleased(new LiftPistonsBackActive(false));
 
 		// XBoxBack.whileHeld(new VisionAlign());
 
@@ -57,11 +53,6 @@ public class OI
 		XBoxStart.whenReleased(new Intake(0.0));
 
 
-	}
-
-	public Joystick getJoystickBran()
-	{
-		return Branjoy;
 	}
 
 }

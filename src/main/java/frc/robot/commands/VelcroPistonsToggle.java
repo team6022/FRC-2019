@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -22,8 +21,7 @@ public class VelcroPistonsToggle extends Command
 
 	protected void execute()
 	{
-		Robot.VelcroPistons.PistonsOut(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("VelcroPistonsOut", true);
+		Robot.VelcroPistons.Toggle();
 	}
 
 	protected boolean isFinished()
@@ -33,14 +31,6 @@ public class VelcroPistonsToggle extends Command
 
 	protected void end()
 	{
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Robot.VelcroPistons.PistonsIn(Robot.OI.getJoystickBran());
-		SmartDashboard.putBoolean("VelcroPistonsOut", false);
 	}
 
 	protected void interrupted()

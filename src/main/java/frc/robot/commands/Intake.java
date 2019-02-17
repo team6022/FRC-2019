@@ -8,6 +8,11 @@ public class Intake extends Command
 
 	Double _Speed = 0.0;
 
+	/**
+	* Intake toggles ball intake
+	*
+	* @param speed what direction to turn - Positive speed means take ball in, negative means shoot ball out
+	*/
 	public Intake(Double Speed)
 	{
 		_Speed = Speed;

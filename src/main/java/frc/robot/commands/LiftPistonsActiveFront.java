@@ -6,12 +6,12 @@ import frc.robot.Robot;
 /**
  * Add description here
  */
-public class BackLiftPistonsActive extends Command
+public class LiftPistonsActiveFront extends Command
 {
 
 	Boolean _isActive = false;
 
-	public BackLiftPistonsActive(Boolean isActive)
+	public LiftPistonsActiveFront(Boolean isActive)
 	{
 		requires(Robot.LiftPistons);
 		_isActive = isActive;
@@ -24,7 +24,7 @@ public class BackLiftPistonsActive extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.BackPistonsActive(_isActive);
+		Robot.LiftPistons.FrontActive(_isActive);
 	}
 
 	protected boolean isFinished()

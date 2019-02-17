@@ -28,7 +28,7 @@ public class LiftPistons extends Subsystem {
 	/**
 	* FrontPistonsActive toggles the front pistons
 	*/
-	public void FrontPistonsActive(boolean isActive)
+	public void FrontActive(boolean isActive)
 	{
 		DSFront.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
@@ -37,7 +37,7 @@ public class LiftPistons extends Subsystem {
 	/**
 	* FrontPistonsActive toggles the back pistons
 	*/
-	public void BackPistonsActive(boolean isActive)
+	public void BackActive(boolean isActive)
 	{
 		DSBack.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);

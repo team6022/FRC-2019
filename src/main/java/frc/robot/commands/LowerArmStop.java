@@ -17,7 +17,7 @@ public class LowerArmStop extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.StopLower(Robot.OI.getJoystickBran());
+		Robot.ExtendingArm.StopLower();
 	}
 
 	protected boolean isFinished()

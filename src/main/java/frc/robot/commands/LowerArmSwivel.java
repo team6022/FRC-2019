@@ -17,7 +17,7 @@ public class LowerArmSwivel extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.MoveLowerArm(Robot.OI.getJoystickBran());
+		Robot.ExtendingArm.MoveLowerArm();
 	}
 
 	protected boolean isFinished()

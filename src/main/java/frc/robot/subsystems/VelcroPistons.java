@@ -1,9 +1,9 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.*;
 
 /**
  * Add description here
@@ -19,16 +19,22 @@ public class VelcroPistons extends Subsystem {
 
 	public void initDefaultCommand()
 	{
-
 	}
 
-	public void PistonsOut(Joystick Branjoy)
+	public void Toggle()
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		Active(true);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Active(false);
 	}
 
-	public void PistonsIn(Joystick Branjoy)
+	public void Active(boolean isActive)
 	{
-		doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+		doubleSolenoid.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
+		SmartDashboard.putBoolean("VelcroPistonsOut", true);
 	}
 }
