@@ -6,12 +6,15 @@ import frc.robot.Robot;
 /**
  * Add description here
  */
-public class BackLiftPistonsOut extends Command
+public class BackLiftPistonsActive extends Command
 {
 
-	public BackLiftPistonsOut()
+	Boolean _isActive = false;
+
+	public BackLiftPistonsActive(Boolean isActive)
 	{
 		requires(Robot.LiftPistons);
+		_isActive = isActive;
 	}
 
 	protected void initialize()
@@ -21,7 +24,7 @@ public class BackLiftPistonsOut extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.BackPistonsOut(Robot.OI.getJoystickBran());
+		Robot.LiftPistons.BackPistonsActive(_isActive);
 	}
 
 	protected boolean isFinished()

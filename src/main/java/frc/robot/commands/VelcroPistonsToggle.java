@@ -33,6 +33,7 @@ public class VelcroPistonsToggle extends Command
 
 	protected void end()
 	{
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

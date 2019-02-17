@@ -26,28 +26,24 @@ public class LiftPistons extends Subsystem {
 
 	}
 
-	public void BackPistonsOut(Joystick Branjoy)
+
+	public void FrontPistonsActive(boolean isActive)
 	{
-		DSFront.set(DoubleSolenoid.Value.kForward);
-		SmartDashboard.putBoolean("BackLiftPistonsOut", false);
+		if (isActive) {
+			DSFront.set(DoubleSolenoid.Value.kForward);
+		} else {
+			DSFront.set(DoubleSolenoid.Value.kReverse);
+		}
+		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 
-	public void BackPistonsIn(Joystick Branjoy)
+	public void BackPistonsActive(boolean isActive)
 	{
-		DSFront.set(DoubleSolenoid.Value.kReverse);
-		SmartDashboard.putBoolean("BackLiftPistonsOut", true);
-
-	}
-
-	public void FrontPistonsOut(Joystick Branjoy)
-	{
-		DSBack.set(DoubleSolenoid.Value.kForward);
-		SmartDashboard.putBoolean("FrontLiftPistonsOut", false);
-	}
-
-	public void FrontPistonsIn(Joystick Branjoy)
-	{
-		DSBack.set(DoubleSolenoid.Value.kReverse);
-		SmartDashboard.putBoolean("FrontLiftPistonsOut", true);
+		if (isActive) {
+			DSBack.set(DoubleSolenoid.Value.kForward);
+		} else {
+			DSBack.set(DoubleSolenoid.Value.kReverse);
+		}
+		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 }

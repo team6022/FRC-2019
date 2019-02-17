@@ -1,8 +1,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.RobotMap;
+import frc.robot.Robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -35,7 +37,27 @@ public class ExtendingArm extends Subsystem {
 		// TalonRight.setNeutralMode(NeutralMode.Coast);
 		TalonLeft.set(ControlMode.PercentOutput, -speed);
 		TalonRight.set(ControlMode.PercentOutput, speed);
+		System.out.println(TalonLeft.getSelectedSensorPosition());
+		if(TalonLeft.getSelectedSensorPosition() >= 1670)
+		{
+		Toggle(Robot.OI.getJoystickBran());
+		TalonLeft.set(ControlMode.PercentOutput, 0.0);
+		TalonRight.set(ControlMode.PercentOutput, 0.0);
+		}
 
+	}
+
+	public void Toggle (Joystick Branjoy)
+	{
+		Robot.VelcroPistons.PistonsOut(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("VelcroPistonsOut", true);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Robot.VelcroPistons.PistonsIn(Robot.OI.getJoystickBran());
+		SmartDashboard.putBoolean("VelcroPistonsOut", false);
 	}
 
 

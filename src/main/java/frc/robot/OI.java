@@ -38,10 +38,13 @@ public class OI
 		// XBoxY.whenPressed(new BackLiftPistonsOut());
 		// XBoxRB.whenPressed(new FrontLiftPistonsOut());
 
-		XBoxLB.whenPressed(new FrontLiftPistonsIn());
-		XBoxLB.whenReleased(new FrontLiftPistonsOut());
-		XBoxRB.whenPressed(new BackLiftPistonsIn());
-		XBoxRB.whenReleased(new BackLiftPistonsOut());
+		// front lift pistons
+		XBoxLB.whenPressed(new FrontLiftPistonsActive(true));
+		XBoxLB.whenReleased(new FrontLiftPistonsActive(false));
+
+		// back lisft pistons
+		XBoxRB.whenPressed(new BackLiftPistonsActive(true));
+		XBoxRB.whenReleased(new BackLiftPistonsActive(false));
 
 		// XBoxBack.whileHeld(new VisionAlign());
 
@@ -50,7 +53,7 @@ public class OI
 		XBoxBack.whenReleased(new Intake(0.0));
 
 		// shoot ball out
-		XBoxStart.whileHeld(new Intake(-0.75));
+		XBoxStart.whileHeld(new Intake(-1.0));
 		XBoxStart.whenReleased(new Intake(0.0));
 
 

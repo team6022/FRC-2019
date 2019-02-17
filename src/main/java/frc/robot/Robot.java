@@ -56,7 +56,7 @@ public class Robot extends TimedRobot
 
 		// starts and streams camera data
 		CameraServer.getInstance().startAutomaticCapture(0);
-		CameraServer.getInstance().startAutomaticCapture(1);
+		// CameraServer.getInstance().startAutomaticCapture(1);
 
 
 
