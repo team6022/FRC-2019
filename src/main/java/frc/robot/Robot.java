@@ -52,6 +52,8 @@ public class Robot extends TimedRobot
 		SmartDashboard.setDefaultNumber("victorSP/SP2", 0);
 		SmartDashboard.setDefaultNumber("victorSP/SP3", 0);
 		SmartDashboard.setDefaultNumber("victorSP/SP4", 0);
+		SmartDashboard.setDefaultNumber("ExtendingArm/TalonLeft", 0);
+		SmartDashboard.setDefaultNumber("ExtendingArm/TalonRight", 0);
 
 
 		// starts and streams camera data

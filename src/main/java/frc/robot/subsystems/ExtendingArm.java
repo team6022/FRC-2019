@@ -1,10 +1,11 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import frc.robot.RobotMap;
+
 
 /**
  * Controls extending arm position
@@ -33,12 +34,16 @@ public class ExtendingArm extends Subsystem {
 
 		TalonLeft.set(ControlMode.PercentOutput, -speed);
 		TalonRight.set(ControlMode.PercentOutput, speed);
+
 		System.out.println(TalonLeft.getSelectedSensorPosition());
+
 		if (TalonLeft.getSelectedSensorPosition() >= 1670) {
 			vp.Toggle();
 			TalonLeft.set(ControlMode.PercentOutput, 0.0);
 			TalonRight.set(ControlMode.PercentOutput, 0.0);
 		}
+
+		UpdateSmartDashboard();
 
 	}
 
@@ -46,5 +51,15 @@ public class ExtendingArm extends Subsystem {
 	{
 		TalonLeft.set(ControlMode.PercentOutput, 0.0);
 		TalonRight.set(ControlMode.PercentOutput, 0.0);
+
+		UpdateSmartDashboard();
+	}
+
+	/**
+	* Makes sure the {@link SmartDashboard} is updated with the latest values
+	*/
+	private void UpdateSmartDashboard() {
+		SmartDashboard.putNumber("ExtendingArm/TalonLeft", TalonLeft.getSelectedSensorPosition());
+		SmartDashboard.putNumber("ExtendingArm/TalonRight", TalonRight.getSelectedSensorPosition());
 	}
 }
