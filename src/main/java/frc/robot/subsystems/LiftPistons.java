@@ -26,6 +26,8 @@ public class LiftPistons extends Subsystem {
 
 	/**
 	* FrontPistonsActive toggles the front pistons
+	*
+	* @param isActive is piston in or out
 	*/
 	public void FrontActive(boolean isActive)
 	{
@@ -35,6 +37,7 @@ public class LiftPistons extends Subsystem {
 
 	/**
 	* FrontPistonsActive toggles the back pistons
+	* @param isActive is piston in or out
 	*/
 	public void BackActive(boolean isActive)
 	{

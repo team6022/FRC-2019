@@ -58,6 +58,7 @@ public class ExtendingArm extends Subsystem {
 
 	/**
 	* Go to a specific position
+	* @param goToPosition - set talon to certain position
 	*/
 	public void GoToPosition(int goToPosition)
 	{
