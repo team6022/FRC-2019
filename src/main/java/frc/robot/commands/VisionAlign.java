@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 /**
-* Add description here
+* Lines up robot with vision target
 */
 public class VisionAlign extends Command
 {

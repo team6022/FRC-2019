@@ -7,7 +7,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
- * Add description here
+ * Controls extending arm position
  */
 public class ExtendingArm extends Subsystem {
 

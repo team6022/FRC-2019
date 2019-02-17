@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 /**
- * Add description here
+ * Toggles the front velcro pistons
  */
 public class VelcroPistonsToggle extends Command
 {

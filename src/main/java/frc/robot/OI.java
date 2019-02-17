@@ -1,6 +1,6 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -8,7 +8,9 @@ import frc.robot.commands.*;
 
 public class OI
 {
-	final Joystick Branjoy = new Joystick(0);
+	// final Joystick Branjoy = new Joystick(0);
+	final XboxController Branjoy = new XboxController(0);
+
 
 	Button XBoxA = new JoystickButton(Branjoy, 1);
 	Button XBoxB = new JoystickButton(Branjoy, 2);
@@ -19,7 +21,7 @@ public class OI
 	Button XBoxBack = new JoystickButton(Branjoy, 7);
 	Button XBoxStart = new JoystickButton(Branjoy, 8);
 
-	public Joystick getJoystickBran()
+	public XboxController getJoystickBran()
 	{
 		return Branjoy;
 	}

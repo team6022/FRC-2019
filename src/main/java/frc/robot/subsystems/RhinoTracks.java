@@ -1,6 +1,6 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,7 +33,7 @@ public class RhinoTracks extends Subsystem
 	/**
 	* DriveJoystick allows for driving capabilities using the Joystick input.
 	*/
-	public void DriveJoystick(Joystick Branjoy)
+	public void DriveJoystick(XboxController Branjoy)
 	{
 		Double speedDrive = 1.0;
 		Double speedTurn = 1.0;

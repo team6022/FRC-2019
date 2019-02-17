@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.RobotMap;
 
 /**
- * Add description here
+ * Controls the front velcro pistons
  */
 public class VelcroPistons extends Subsystem {
 
@@ -21,6 +21,9 @@ public class VelcroPistons extends Subsystem {
 	{
 	}
 
+	/**
+	 * Toggles the front velcro pistons for 1 seciond
+	 */
 	public void Toggle()
 	{
 		Active(true);
@@ -32,6 +35,11 @@ public class VelcroPistons extends Subsystem {
 		Active(false);
 	}
 
+	/**
+	 * Activates the front velcro pistons
+	 *
+	 * @param isActive bool - should pistions be extended or not
+	 */
 	public void Active(boolean isActive)
 	{
 		doubleSolenoid.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
