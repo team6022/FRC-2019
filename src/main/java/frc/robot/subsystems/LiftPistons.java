@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class LiftPistons extends Subsystem {
 
-	static DoubleSolenoid DSFront = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
-	static DoubleSolenoid DSBack = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
+	static DoubleSolenoid DoubleSolenoidFront = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
+	static DoubleSolenoid DoubleSolenoidBack = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
 
 
 	public LiftPistons()
@@ -30,7 +30,7 @@ public class LiftPistons extends Subsystem {
 	*/
 	public void FrontActive(boolean isActive)
 	{
-		DSFront.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
+		DoubleSolenoidFront.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 
@@ -39,7 +39,7 @@ public class LiftPistons extends Subsystem {
 	*/
 	public void BackActive(boolean isActive)
 	{
-		DSBack.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
+		DoubleSolenoidBack.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 }
