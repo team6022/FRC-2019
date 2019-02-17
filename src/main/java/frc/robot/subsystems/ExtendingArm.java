@@ -24,7 +24,9 @@ public class ExtendingArm extends Subsystem {
 
 	public void initDefaultCommand()
 	{
-		TalonLeft.setInverted(true);
+		TalonRight.setInverted(true);
+		TalonRight.setSelectedSensorPosition(0);
+		TalonLeft.setSelectedSensorPosition(0);
 	}
 
 
@@ -35,10 +37,10 @@ public class ExtendingArm extends Subsystem {
 	{
 
 		// you probably don't want to go over 0.40
-		Double speed = 0.40;
+		// Double speed = 0.40;
 
-		TalonLeft.set(ControlMode.PercentOutput, speed);
-		TalonRight.set(ControlMode.PercentOutput, speed);
+		// TalonLeft.set(ControlMode.PercentOutput, speed);
+		// TalonRight.set(ControlMode.PercentOutput, speed);
 
 		UpdateSmartDashboard();
 	}
