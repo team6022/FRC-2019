@@ -20,7 +20,7 @@ public class Intake extends Command
 
 	protected void execute()
 	{
-		Robot.Intake.IntakeBall(Robot.OI.getJoystickBran(), _Speed);
+		Robot.Intake.IntakeBall(_Speed);
 	}
 
 	protected boolean isFinished()

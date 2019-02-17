@@ -1,20 +1,16 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Talon;
 import frc.robot.RobotMap;
-
-import edu.wpi.first.wpilibj.*;
 
 
 /**
- * Add description here
+ * Controls ball intake
  */
 public class Intake extends Subsystem {
 
-
 	static Talon Intake = new Talon(RobotMap.Intake);
-
 
 	public Intake()
 	{
@@ -23,11 +19,14 @@ public class Intake extends Subsystem {
 
 	public void initDefaultCommand()
 	{
-
 	}
 
-
-	public void IntakeBall(Joystick Branjoy, Double speed)
+	/**
+	* IntakeBall toggles the back pistons
+	*
+	* @param speed what direction to turn - Positive speed means take ball in, negative means shoot ball out
+	*/
+	public void IntakeBall(Double speed)
 	{
 		Intake.set(speed);
 	}
