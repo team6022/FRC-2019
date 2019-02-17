@@ -3,9 +3,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
-import java.util.Optional;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
 

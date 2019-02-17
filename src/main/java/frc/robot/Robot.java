@@ -83,7 +83,6 @@ public class Robot extends TimedRobot
 	 */
 	public void disabledInit()
 	{
-
 	}
 
 	public void disabledPeriodic()

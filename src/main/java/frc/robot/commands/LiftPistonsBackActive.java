@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
+
 /**
  * Lift and drops back bottom pistons
  */
@@ -13,13 +14,12 @@ public class LiftPistonsBackActive extends Command
 
 	public LiftPistonsBackActive(Boolean isActive)
 	{
-		requires(Robot.LiftPistons);
 		_isActive = isActive;
+		requires(Robot.LiftPistons);
 	}
 
 	protected void initialize()
 	{
-
 	}
 
 	protected void execute()
@@ -34,7 +34,6 @@ public class LiftPistonsBackActive extends Command
 
 	protected void end()
 	{
-
 	}
 
 	protected void interrupted()

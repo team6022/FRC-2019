@@ -13,13 +13,12 @@ public class LiftPistonsActiveFront extends Command
 
 	public LiftPistonsActiveFront(Boolean isActive)
 	{
-		requires(Robot.LiftPistons);
 		_isActive = isActive;
+		requires(Robot.LiftPistons);
 	}
 
 	protected void initialize()
 	{
-
 	}
 
 	protected void execute()
@@ -34,7 +33,6 @@ public class LiftPistonsActiveFront extends Command
 
 	protected void end()
 	{
-
 	}
 
 	protected void interrupted()

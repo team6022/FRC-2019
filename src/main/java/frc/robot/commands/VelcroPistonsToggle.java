@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
+
 /**
  * Toggles the front velcro pistons
  */
@@ -16,7 +17,6 @@ public class VelcroPistonsToggle extends Command
 
 	protected void initialize()
 	{
-
 	}
 
 	protected void execute()
