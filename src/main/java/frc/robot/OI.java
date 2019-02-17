@@ -33,8 +33,8 @@ public class OI
 		XBoxA.whenPressed(new VelcroPistonsToggle());
 
 		// arms
-		XBoxB.whileHeld(new LowerArmSwivel());
-		XBoxB.whenReleased(new LowerArmStop());
+		XBoxB.whileHeld(new ExtendingArm());
+		XBoxB.whenReleased(new ExtendingArmStop());
 
 		// front lift pistons
 		XBoxLB.whenPressed(new LiftPistonsActiveFront(true));

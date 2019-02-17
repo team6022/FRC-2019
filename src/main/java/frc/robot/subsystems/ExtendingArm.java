@@ -3,6 +3,9 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import java.util.Optional;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
 
@@ -12,10 +15,8 @@ import frc.robot.RobotMap;
  */
 public class ExtendingArm extends Subsystem {
 
-	static TalonSRX TalonRight = new TalonSRX(RobotMap.LowerArmRight);
-	static TalonSRX TalonLeft = new TalonSRX(RobotMap.LowerArmLeft);
-
-	static VelcroPistons vp = new VelcroPistons();
+	static TalonSRX TalonRight = new TalonSRX(RobotMap.ExtendingArmRight);
+	static TalonSRX TalonLeft = new TalonSRX(RobotMap.ExtendingArmLeft);
 
 
 	public ExtendingArm()
@@ -23,36 +24,54 @@ public class ExtendingArm extends Subsystem {
 		super();
 	}
 
+
 	public void initDefaultCommand()
 	{
+		TalonLeft.setInverted(true);
 	}
 
-	public void MoveLowerArm()
+
+	/**
+	* Move Extending Arm Motion
+	*/
+	public void Move()
 	{
 
-		Double speed = 0.40; // you probably don't want to go over 0.40
+		// you probably don't want to go over 0.40
+		Double speed = 0.40;
 
-		TalonLeft.set(ControlMode.PercentOutput, -speed);
+		TalonLeft.set(ControlMode.PercentOutput, speed);
 		TalonRight.set(ControlMode.PercentOutput, speed);
 
-		System.out.println(TalonLeft.getSelectedSensorPosition());
-
-		if (TalonLeft.getSelectedSensorPosition() >= 1670) {
-			vp.Toggle();
-			TalonLeft.set(ControlMode.PercentOutput, 0.0);
-			TalonRight.set(ControlMode.PercentOutput, 0.0);
-		}
-
 		UpdateSmartDashboard();
-
 	}
 
-	public void StopLower()
+
+	/**
+	* Stops Extending Arm Motion
+	*/
+	public void Stop()
 	{
 		TalonLeft.set(ControlMode.PercentOutput, 0.0);
 		TalonRight.set(ControlMode.PercentOutput, 0.0);
 
 		UpdateSmartDashboard();
+	}
+
+
+	/**
+	* Go to a specific position
+	*/
+	public void GoToPosition(int goToPosition)
+	{
+		// 1670
+		// if (TalonLeft.getSelectedSensorPosition() >= goToPosition) {
+		// 	// vp.Toggle();
+		// 	TalonLeft.set(ControlMode.PercentOutput, 0.0);
+		// 	TalonRight.set(ControlMode.PercentOutput, 0.0);
+		// }
+		TalonLeft.setSelectedSensorPosition(goToPosition);
+		TalonRight.setSelectedSensorPosition(goToPosition);
 	}
 
 	/**

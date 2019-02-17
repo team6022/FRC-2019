@@ -26,7 +26,7 @@ public class RobotMap
 	public static final int FrontLiftPistonsReverseChannel = 3;
 
 	// CAN Device
-	public static final int LowerArmRight = 0;
-	public static final int LowerArmLeft = 1;
+	public static final int ExtendingArmRight = 0;
+	public static final int ExtendingArmLeft = 1;
 
 }

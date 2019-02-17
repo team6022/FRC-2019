@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class LowerArmSwivel extends Command
+public class ExtendingArmStop extends Command
 {
 
-	public LowerArmSwivel()
+	public ExtendingArmStop()
 	{
 		requires(Robot.ExtendingArm);
 	}
@@ -17,7 +17,7 @@ public class LowerArmSwivel extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.MoveLowerArm();
+		Robot.ExtendingArm.Stop();
 	}
 
 	protected boolean isFinished()
