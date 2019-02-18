@@ -21,6 +21,10 @@ public class OI
 	Button XBoxBack = new JoystickButton(Branjoy, 7);
 	Button XBoxStart = new JoystickButton(Branjoy, 8);
 
+	Button XBoxL3 = new JoystickButton(Branjoy, 9);
+	Button XBoxR3 = new JoystickButton(Branjoy, 10);
+
+
 	public XboxController getJoystickBran()
 	{
 		return Branjoy;
@@ -30,17 +34,17 @@ public class OI
 	{
 
 		// velcro piston
-		XBoxA.whenPressed(new VelcroPistonsToggle());
+		XBoxR3.whenPressed(new VelcroPistonsToggle());
 
 		// arms
-		XBoxB.whileHeld(new ExtendingArm());
-		XBoxB.whenReleased(new ExtendingArmStop());
+		// XBoxB.whileHeld(new ExtendingArm());
+		// XBoxB.whenReleased(new ExtendingArmStop());
 
 		// front lift pistons
 		XBoxLB.whenPressed(new LiftPistonsActiveFront(true));
 		XBoxLB.whenReleased(new LiftPistonsActiveFront(false));
 
-		// back lisft pistons
+		// back list pistons
 		XBoxRB.whenPressed(new LiftPistonsBackActive(true));
 		XBoxRB.whenReleased(new LiftPistonsBackActive(false));
 

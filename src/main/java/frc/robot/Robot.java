@@ -25,6 +25,7 @@ public class Robot extends TimedRobot
 {
 
 	public static OI OI;
+	// public static ShuffleboardOI ShuffleboardOI;
 	public static VelcroPistons VelcroPistons;
 	public static RhinoTracks RhinoTracks;
 	public static ExtendingArm ExtendingArm;
@@ -74,6 +75,7 @@ public class Robot extends TimedRobot
 		VelcroPistons = new VelcroPistons();
 		LiftPistons = new LiftPistons();
 		OI = new OI(); // keep OI() at the bottom
+		// ShuffleboardOI = new ShuffleboardOI();
 
 	}
 

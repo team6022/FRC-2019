@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -24,23 +26,24 @@ public class ExtendingArm extends Subsystem {
 
 	public void initDefaultCommand()
 	{
-		TalonRight.setInverted(true);
+		TalonLeft.setInverted(true);
 		TalonRight.setSelectedSensorPosition(0);
 		TalonLeft.setSelectedSensorPosition(0);
+
 	}
 
 
 	/**
 	* Move Extending Arm Motion
 	*/
-	public void Move()
+	public void Move(XboxController Branjoy)
 	{
 
 		// you probably don't want to go over 0.40
-		// Double speed = 0.40;
+		Double speed = 0.40;
 
-		// TalonLeft.set(ControlMode.PercentOutput, speed);
-		// TalonRight.set(ControlMode.PercentOutput, speed);
+		TalonLeft.set(ControlMode.PercentOutput, speed * Branjoy.getY(Hand.kRight));
+		TalonRight.set(ControlMode.PercentOutput, speed * Branjoy.getY(Hand.kRight));
 
 		UpdateSmartDashboard();
 	}

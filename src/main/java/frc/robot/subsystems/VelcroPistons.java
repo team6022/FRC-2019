@@ -44,6 +44,6 @@ public class VelcroPistons extends Subsystem {
 	public void Active(boolean isActive)
 	{
 		doubleSolenoid.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
-		SmartDashboard.putBoolean("VelcroPistonsOut", true);
+		SmartDashboard.putBoolean("VelcroPistonsOut", isActive);
 	}
 }

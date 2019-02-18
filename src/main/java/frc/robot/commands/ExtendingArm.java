@@ -18,7 +18,7 @@ public class ExtendingArm extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.Move();
+		Robot.ExtendingArm.Move(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()

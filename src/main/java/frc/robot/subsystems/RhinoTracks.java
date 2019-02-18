@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -40,13 +41,14 @@ public class RhinoTracks extends Subsystem
 		Double turnThreshhold = 0.30;
 		Double deadzone = 0.23;
 
+
 		// check to see if we need to be turning left or right
-		if (Branjoy.getY() >= turnThreshhold || Branjoy.getY() <= -turnThreshhold) {
-			if (deadzone >= Branjoy.getY() || -deadzone <= Branjoy.getY())
-				Drive(Branjoy.getY() * speedDrive);
+		if (Branjoy.getY(Hand.kLeft) >= turnThreshhold || Branjoy.getY(Hand.kLeft) <= -turnThreshhold) {
+			if (deadzone >= Branjoy.getY(Hand.kLeft) || -deadzone <= Branjoy.getY(Hand.kLeft))
+				Drive(Branjoy.getY(Hand.kLeft) * speedDrive);
 		} else {
-			if (deadzone >= Branjoy.getX() || -deadzone <= Branjoy.getX())
-				Turn(Branjoy.getX() * speedTurn);
+			if (deadzone >= Branjoy.getX(Hand.kLeft) || -deadzone <= Branjoy.getX(Hand.kLeft))
+				Turn(Branjoy.getX(Hand.kLeft) * speedTurn);
 		}
 
 	}
