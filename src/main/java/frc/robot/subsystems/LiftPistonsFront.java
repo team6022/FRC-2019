@@ -28,8 +28,6 @@ public class LiftPistonsFront extends Subsystem {
 
 	/**
 	* Active toggles the front pistons
-	*
-	* @param isActive is piston in or out
 	*/
 	public void Active(XboxController Branjoy)
 	{

@@ -65,22 +65,6 @@ public class ExtendingArm extends Subsystem {
 
 
 	/**
-	* Go to a specific position
-	* @param goToPosition - set talon to certain position
-	*/
-	public void GoToPosition(int goToPosition)
-	{
-		// 1670
-		// if (TalonLeft.getSelectedSensorPosition() >= goToPosition) {
-		// 	// vp.Toggle();
-		// 	TalonLeft.set(ControlMode.PercentOutput, 0.0);
-		// 	TalonRight.set(ControlMode.PercentOutput, 0.0);
-		// }
-		TalonLeft.setSelectedSensorPosition(goToPosition);
-		TalonRight.setSelectedSensorPosition(goToPosition);
-	}
-
-	/**
 	* Makes sure the {@link SmartDashboard} is updated with the latest values
 	*/
 	private void UpdateSmartDashboard() {

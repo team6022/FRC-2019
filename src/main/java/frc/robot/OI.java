@@ -20,7 +20,6 @@ public class OI
 	Button XBoxRB = new JoystickButton(Branjoy, 6);
 	Button XBoxBack = new JoystickButton(Branjoy, 7);
 	Button XBoxStart = new JoystickButton(Branjoy, 8);
-
 	Button XBoxL3 = new JoystickButton(Branjoy, 9);
 	Button XBoxR3 = new JoystickButton(Branjoy, 10);
 
@@ -33,31 +32,19 @@ public class OI
 	public OI()
 	{
 
-		// velcro piston
+		// Velcro Piston
 		XBoxR3.whenPressed(new VelcroPistonsToggle());
 
-		// arms
-		// XBoxB.whileHeld(new ExtendingArm());
-		// XBoxB.whenReleased(new ExtendingArmStop());
+		// Vision Alignment
+		XBoxA.whileHeld(new VisionAlign());
 
-		// front lift pistons
-		// XBoxLB.whenPressed(new LiftPistonsActiveFront(true));
-		// XBoxLB.whenReleased(new LiftPistonsActiveFront(false));
-
-		// back list pistons
-		// XBoxRB.whenPressed(new LiftPistonsBackActive(true));
-		// XBoxRB.whenReleased(new LiftPistonsBackActive(false));
-
-		// XBoxBack.whileHeld(new VisionAlign());
-
-		// pull ball in
+		// Pull Ball In
 		XBoxLB.whileHeld(new Intake(0.75));
 		XBoxLB.whenReleased(new Intake(0.0));
 
-		// shoot ball out
+		// Shoot Ball Out
 		XBoxRB.whileHeld(new Intake(-1.0));
 		XBoxRB.whenReleased(new Intake(0.0));
-
 
 	}
 
