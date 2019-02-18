@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import frc.robot.commands.ExtendingArmMove;
 import frc.robot.RobotMap;
 
 
@@ -26,10 +27,12 @@ public class ExtendingArm extends Subsystem {
 
 	public void initDefaultCommand()
 	{
+
+		setDefaultCommand(new ExtendingArmMove());
+
 		TalonLeft.setInverted(true);
 		TalonRight.setSelectedSensorPosition(0);
 		TalonLeft.setSelectedSensorPosition(0);
-
 	}
 
 

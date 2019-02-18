@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
-public class ExtendingArm extends Command
+public class ExtendingArmMove extends Command
 {
 
-	public ExtendingArm()
+	public ExtendingArmMove()
 	{
 		requires(Robot.ExtendingArm);
 	}

@@ -7,15 +7,12 @@ import frc.robot.Robot;
 /**
  * Lift and drops back bottom pistons
  */
-public class LiftPistonsBackActive extends Command
+public class LiftPistonsActiveBack extends Command
 {
 
-	Boolean _isActive = false;
-
-	public LiftPistonsBackActive(Boolean isActive)
+	public LiftPistonsActiveBack()
 	{
-		_isActive = isActive;
-		requires(Robot.LiftPistons);
+		requires(Robot.LiftPistonsBack);
 	}
 
 	protected void initialize()
@@ -24,7 +21,7 @@ public class LiftPistonsBackActive extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.BackActive(_isActive);
+		Robot.LiftPistonsBack.Active(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()

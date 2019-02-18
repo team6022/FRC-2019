@@ -9,12 +9,9 @@ import frc.robot.Robot;
 public class LiftPistonsActiveFront extends Command
 {
 
-	Boolean _isActive = false;
-
-	public LiftPistonsActiveFront(Boolean isActive)
+	public LiftPistonsActiveFront()
 	{
-		_isActive = isActive;
-		requires(Robot.LiftPistons);
+		requires(Robot.LiftPistonsFront);
 	}
 
 	protected void initialize()
@@ -23,7 +20,7 @@ public class LiftPistonsActiveFront extends Command
 
 	protected void execute()
 	{
-		Robot.LiftPistons.FrontActive(_isActive);
+		Robot.LiftPistonsFront.Active(Robot.OI.getJoystickBran());
 	}
 
 	protected boolean isFinished()

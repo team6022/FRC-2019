@@ -39,17 +39,17 @@ public class ShuffleboardOI
 
 
 		// Front Lift Piston
-		ShuffleboardLayout liftPistons = Shuffleboard
-			.getTab("Commands")
-			.getLayout("Back and Front Lift Pistons", BuiltInLayouts.kList)
-			.withSize(2, 2)
-			.withPosition(4, 0);
+		// ShuffleboardLayout liftPistons = Shuffleboard
+		// 	.getTab("Commands")
+		// 	.getLayout("Back and Front Lift Pistons", BuiltInLayouts.kList)
+		// 	.withSize(2, 2)
+		// 	.withPosition(4, 0);
 
-		liftPistons.add("List Pistons Front In", new LiftPistonsActiveFront(false));
-		liftPistons.add("List Pistons Front Out", new LiftPistonsActiveFront(true));
+		// liftPistons.add("List Pistons Front In", new LiftPistonsActiveFront());
+		// liftPistons.add("List Pistons Front Out", new LiftPistonsActiveFront());
 
-		liftPistons.add("List Pistons Back In", new LiftPistonsBackActive(false));
-		liftPistons.add("List Pistons Back Out", new LiftPistonsBackActive(true));
+		// liftPistons.add("List Pistons Back In", new LiftPistonsBackActive());
+		// liftPistons.add("List Pistons Back Out", new LiftPistonsBackActive());
 
 	}
 

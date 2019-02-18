@@ -30,7 +30,7 @@ public class Intake extends Subsystem {
 	public void IntakeBall(Double speed)
 	{
 		Intake.set(speed);
-		SmartDashboard.putNumber("intake", speed);
+		SmartDashboard.putNumber("Intake", speed);
 	}
 
 }

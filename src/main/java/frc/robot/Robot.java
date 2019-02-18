@@ -10,7 +10,8 @@ import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.subsystems.VelcroPistons;
 import frc.robot.subsystems.ExtendingArm;
 import frc.robot.subsystems.RhinoTracks;
-import frc.robot.subsystems.LiftPistons;
+import frc.robot.subsystems.LiftPistonsFront;
+import frc.robot.subsystems.LiftPistonsBack;
 import frc.robot.subsystems.Intake;
 
 
@@ -29,7 +30,8 @@ public class Robot extends TimedRobot
 	public static VelcroPistons VelcroPistons;
 	public static RhinoTracks RhinoTracks;
 	public static ExtendingArm ExtendingArm;
-	public static LiftPistons LiftPistons;
+	public static LiftPistonsFront LiftPistonsFront;
+	public static LiftPistonsBack LiftPistonsBack;
 	public static Intake Intake;
 
 	public String gameData;
@@ -55,7 +57,7 @@ public class Robot extends TimedRobot
 		SmartDashboard.setDefaultNumber("victorSP/SP4", 0);
 		SmartDashboard.setDefaultNumber("ExtendingArm/TalonLeft", 0);
 		SmartDashboard.setDefaultNumber("ExtendingArm/TalonRight", 0);
-		SmartDashboard.setDefaultNumber("intake", 0);
+		SmartDashboard.setDefaultNumber("Intake", 0);
 
 
 		// starts and streams camera data
@@ -73,7 +75,8 @@ public class Robot extends TimedRobot
 		Intake = new Intake();
 		RhinoTracks = new RhinoTracks();
 		VelcroPistons = new VelcroPistons();
-		LiftPistons = new LiftPistons();
+		LiftPistonsFront = new LiftPistonsFront();
+		LiftPistonsBack = new LiftPistonsBack();
 		OI = new OI(); // keep OI() at the bottom
 		// ShuffleboardOI = new ShuffleboardOI();
 

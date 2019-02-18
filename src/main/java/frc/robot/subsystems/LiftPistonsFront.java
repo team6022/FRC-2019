@@ -1,47 +1,42 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.LiftPistonsActiveFront;
+import frc.robot.RobotMap;
 
 
 /**
  * Lift and drops bottom pistons
  */
-public class LiftPistons extends Subsystem {
+public class LiftPistonsFront extends Subsystem {
 
 	static DoubleSolenoid DoubleSolenoidFront = new DoubleSolenoid(RobotMap.BackLiftPistonsForwardChannel, RobotMap.BackLiftPistonsReverseChannel);
-	static DoubleSolenoid DoubleSolenoidBack = new DoubleSolenoid(RobotMap.FrontLiftPistonsForwardChannel, RobotMap.FrontLiftPistonsReverseChannel);
 
-
-	public LiftPistons()
+	public LiftPistonsFront()
 	{
 		super();
 	}
 
 	public void initDefaultCommand()
 	{
+		setDefaultCommand(new LiftPistonsActiveFront());
 	}
 
 	/**
-	* FrontPistonsActive toggles the front pistons
+	* Active toggles the front pistons
 	*
 	* @param isActive is piston in or out
 	*/
-	public void FrontActive(boolean isActive)
+	public void Active(XboxController Branjoy)
 	{
+		boolean isActive = (Branjoy.getTriggerAxis(Hand.kRight) >= 0.9);
 		DoubleSolenoidFront.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 
-	/**
-	* FrontPistonsActive toggles the back pistons
-	* @param isActive is piston in or out
-	*/
-	public void BackActive(boolean isActive)
-	{
-		DoubleSolenoidBack.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
-		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
-	}
+
 }
