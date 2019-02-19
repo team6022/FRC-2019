@@ -3,7 +3,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
 import frc.robot.commands.*;
 
 public class OI
@@ -45,6 +44,12 @@ public class OI
 		// Shoot Ball Out
 		XBoxRB.whileHeld(new Intake(-1.0));
 		XBoxRB.whenReleased(new Intake(0.0));
+
+
+		// Start/Stop Shuffleboard Record
+		XBoxStart.whenPressed(new RecordStart());
+		XBoxBack.whenPressed(new RecordStop());
+
 
 	}
 

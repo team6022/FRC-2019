@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -82,6 +83,9 @@ public class VisionAlign extends Command
 			} else {
 				// ok we found it, stop looking
 				Robot.RhinoTracks.Turn(0.00);
+				Robot.OI.getJoystickBran().setRumble(RumbleType.kLeftRumble, 1);
+				Robot.OI.getJoystickBran().setRumble(RumbleType.kRightRumble, 1);
+
 			}
 		}
 
@@ -94,6 +98,8 @@ public class VisionAlign extends Command
 
 	protected void end()
 	{
+		Robot.OI.getJoystickBran().setRumble(RumbleType.kLeftRumble, 0);
+		Robot.OI.getJoystickBran().setRumble(RumbleType.kRightRumble, 0);
 	}
 
 	protected void interrupted()
