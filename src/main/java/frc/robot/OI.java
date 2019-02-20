@@ -3,18 +3,24 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.*;
 
 public class OI
 {
 	// final Joystick Branjoy = new Joystick(0);
 	final XboxController Branjoy = new XboxController(0);
+	final XboxController Sarajoy = new XboxController(1);
 
+	// Buttons for Sarajoy
+	Button XBoxA = new JoystickButton(Sarajoy, 1);
+	Button XBoxY = new JoystickButton(Sarajoy, 4);
+	POVButton DPadUp = new POVButton(Sarajoy, 0);
+	POVButton DPadDown = new POVButton(Sarajoy, 180);
 
-	Button XBoxA = new JoystickButton(Branjoy, 1);
+	// Buttons for Branjoy
 	Button XBoxB = new JoystickButton(Branjoy, 2);
 	Button XBoxX = new JoystickButton(Branjoy, 3);
-	Button XBoxY = new JoystickButton(Branjoy, 4);
 	Button XBoxLB = new JoystickButton(Branjoy, 5);
 	Button XBoxRB = new JoystickButton(Branjoy, 6);
 	Button XBoxBack = new JoystickButton(Branjoy, 7);
@@ -50,7 +56,9 @@ public class OI
 		XBoxStart.whenPressed(new RecordStart());
 		XBoxBack.whenPressed(new RecordStop());
 
-
+		// D Pad Up & Down
+		DPadUp.whenPressed(new ExtendingArmMove());
+		DPadDown.whenPressed(new ExtendingArmMove());
 	}
 
 }
