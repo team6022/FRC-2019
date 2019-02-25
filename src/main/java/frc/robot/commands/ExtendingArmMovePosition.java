@@ -4,12 +4,16 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
-public class ExtendingArmStop extends Command
+public class ExtendingArmMovePosition extends Command
 {
 
-	public ExtendingArmStop()
+
+	Integer position = 0;
+
+	public ExtendingArmMovePosition(Integer _position)
 	{
 		requires(Robot.ExtendingArm);
+		position = _position;
 	}
 
 	protected void initialize()
@@ -18,7 +22,7 @@ public class ExtendingArmStop extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.Stop();
+		Robot.ExtendingArm.MovePosition(position);
 	}
 
 	protected boolean isFinished()

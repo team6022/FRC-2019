@@ -39,7 +39,7 @@ public class RhinoTracks extends Subsystem
 		Double speedDrive = 1.0;
 		Double speedTurn = 1.0;
 		Double turnThreshhold = 0.30;
-		Double deadzone = 0.23;
+		Double deadzone = 0.24;
 
 
 		// check to see if we need to be turning left or right

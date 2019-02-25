@@ -26,7 +26,6 @@ public class Robot extends TimedRobot
 {
 
 	public static OI OI;
-	// public static ShuffleboardOI ShuffleboardOI;
 	public static VelcroPistons VelcroPistons;
 	public static RhinoTracks RhinoTracks;
 	public static ExtendingArm ExtendingArm;
@@ -46,6 +45,8 @@ public class Robot extends TimedRobot
 
 	public void robotInit()
 	{
+
+		
 
 		// ShuffleBoard Sets
 		SmartDashboard.setDefaultBoolean("VelcroPistonsOut", false);
@@ -78,7 +79,6 @@ public class Robot extends TimedRobot
 		LiftPistonsFront = new LiftPistonsFront();
 		LiftPistonsBack = new LiftPistonsBack();
 		OI = new OI(); // keep OI() at the bottom
-		// ShuffleboardOI = new ShuffleboardOI();
 
 	}
 

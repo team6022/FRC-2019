@@ -6,9 +6,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import frc.robot.commands.ExtendingArmMove;
 import frc.robot.RobotMap;
-import frc.robot.Robot;
 
 
 /**
@@ -18,10 +20,7 @@ public class ExtendingArm extends Subsystem {
 
 	static TalonSRX TalonRight = new TalonSRX(RobotMap.ExtendingArmRight);
 	static TalonSRX TalonLeft = new TalonSRX(RobotMap.ExtendingArmLeft);
-	public Integer X = 0;
 
-	public Integer[] cargoHole = {940, 1886, 2973};
-	public Integer[] hatchHole = {600, 1570, 2682};
 
 	public ExtendingArm()
 	{
@@ -34,112 +33,64 @@ public class ExtendingArm extends Subsystem {
 
 		setDefaultCommand(new ExtendingArmMove());
 
+		// invert so we don't have to pass it negative numbers
 		TalonLeft.setInverted(true);
-		TalonRight.setSelectedSensorPosition(0);
+
+		// Make right the slave and left the master (until right encoder gets fixed)
+		TalonRight.follow(TalonLeft);
+
+		// reset starting position to 0
 		TalonLeft.setSelectedSensorPosition(0);
+		TalonRight.setSelectedSensorPosition(0);
+
+		// toggle neutralmode mode break or coast
+		boolean isBreakMode = true;
+		TalonLeft.setNeutralMode((isBreakMode) ? NeutralMode.Brake : NeutralMode.Coast);
+		TalonRight.setNeutralMode((isBreakMode) ? NeutralMode.Brake : NeutralMode.Coast);
+
+		// might be useful? ¯\_(ツ)_/¯ idk
+		// TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
+		// TalonRight.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
+
 	}
 
+
+	/**
+	* Use Joystick to move
+	*/
+	public void JoystickMove(XboxController Branjoy)
+	{
+
+		// set up an artificial joystick lift so that the bucket can maintain position
+		Double artificialLift = 0.34;
+
+		// list is only needed if the talon position is above 648. If the lift is added when we are below that, the bucket will move upwards on its own.
+		if (TalonLeft.getSelectedSensorPosition() < 648.0) artificialLift = 0.0;
+
+		// run move
+		Move(Branjoy.getY(Hand.kRight) + -artificialLift);
+	}
 
 	/**
 	* Move Extending Arm Motion
 	*/
-	public void Move(XboxController Branjoy)
+	public void Move(double speed)
 	{
 
 		// you probably don't want to go over 0.40
-		Double speed = 0.40;
+		Double speedMax = 0.40;
 
-		switch(X) {
-			case 1:
-				if (TalonLeft.getSelectedSensorPosition() <= 940)
-				{
+		TalonLeft.set(ControlMode.PercentOutput, speed * speedMax);
+		TalonRight.set(ControlMode.PercentOutput, speed * speedMax);
 
-					TalonLeft.set(ControlMode.PercentOutput, speed);
-					TalonRight.set(ControlMode.PercentOutput, speed);
-
-					UpdateSmartDashboard();
-				}
-				Robot.ExtendingArm.Stop();
-				X++;
-				break;
-			case 2:
-				if (X == 1 && TalonLeft.getSelectedSensorPosition() <= 1886)
-				{
-					TalonLeft.set(ControlMode.PercentOutput, speed);
-					TalonRight.set(ControlMode.PercentOutput, speed);
-
-					UpdateSmartDashboard();
-				}
-				Robot.ExtendingArm.Stop();
-				X++;
-				break;
-			default:
-				if (X == 2 && TalonLeft.getSelectedSensorPosition() <= 2973)
-				{
-
-					TalonLeft.set(ControlMode.PercentOutput, speed);
-					TalonRight.set(ControlMode.PercentOutput, speed);
-
-					UpdateSmartDashboard();
-				}
-				Robot.ExtendingArm.Stop();
-				X = 0;
-				break;
-		}
+		UpdateSmartDashboard();
 	}
 
 
-
-	/**
-	* Optional Move function to try that Matt wrote
-	*/
-	public void MoveToHatchHole(XboxController Branjoy)
+	public void MovePosition(Integer position)
 	{
-
-		// you probably don't want to go over 0.40
-		Double speed = 0.40;
-
-		Integer povdirection = Branjoy.getPOV();
-		Integer talonPosition = TalonLeft.getSelectedSensorPosition();
-
-		switch (povdirection)
-		{
-			case 0:
-				X++;
-				if (X > hatchHole.length -1) X = 0;
-				break;
-			case 180:
-				X--;
-				if (X < 0) X = hatchHole.length;
-				break;
-		}
-
-
-		if (talonPosition <= hatchHole[X]) {
-			while (talonPosition <= hatchHole[X]) {
-				TalonLeft.set(ControlMode.PercentOutput, speed);
-				TalonRight.set(ControlMode.PercentOutput, speed);
-			}
-			Robot.ExtendingArm.Stop();
-		} else if (talonPosition > hatchHole[X]) {
-			while (talonPosition > hatchHole[X]) {
-				TalonLeft.set(ControlMode.PercentOutput, -speed);
-				TalonRight.set(ControlMode.PercentOutput, -speed);
-			}
-			Robot.ExtendingArm.Stop();
-		}
-
-	}
-
-
-
-	/**
-	* Stops Extending Arm Motion
-	*/
-	public void Stop()
-	{
-		TalonLeft.set(ControlMode.PercentOutput, 0.0);
-		TalonRight.set(ControlMode.PercentOutput, 0.0);
+		TalonLeft.set(ControlMode.MotionMagic, position);
+		TalonRight.set(ControlMode.MotionMagic, position);
 
 		UpdateSmartDashboard();
 	}

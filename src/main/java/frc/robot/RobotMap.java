@@ -25,7 +25,7 @@ public class RobotMap
 	public static final int VelcroPistonsReverseChannel = 5;
 
 	// CAN Device
-	public static final int ExtendingArmRight = 0;
-	public static final int ExtendingArmLeft = 1;
+	public static final int ExtendingArmLeft = 0;
+	public static final int ExtendingArmRight = 1;
 
 }

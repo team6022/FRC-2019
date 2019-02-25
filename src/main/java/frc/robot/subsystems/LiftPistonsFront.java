@@ -32,7 +32,9 @@ public class LiftPistonsFront extends Subsystem {
 	public void Active(XboxController Branjoy)
 	{
 		boolean isActive = (Branjoy.getTriggerAxis(Hand.kRight) >= 0.9);
-		DoubleSolenoidFront.set((isActive) ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse);
+		DoubleSolenoidFront.set((isActive)
+			? DoubleSolenoid.Value.kForward
+			: DoubleSolenoid.Value.kReverse);
 		SmartDashboard.putBoolean("FrontLiftPistonsOut", isActive);
 	}
 
