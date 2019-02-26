@@ -76,9 +76,17 @@ public class ExtendingArm extends Subsystem {
 	public void Move(double speed)
 	{
 
-		// you probably don't want to go over 0.40
-		Double speedMax = 0.40;
+		// Pick different speeds depending on whether you are going up or down.
+		// You probably don't want to go over 0.40
+		Double speedMaxUp = 0.40;
+		Double speedMaxDown = 0.20;
 
+		// Turnery statement to pick correct speed.
+		Double speedMax = (speed > 0)
+			? speedMaxUp
+			: speedMaxDown;
+
+		// Move those Talons
 		TalonLeft.set(ControlMode.PercentOutput, speed * speedMax);
 		TalonRight.set(ControlMode.PercentOutput, speed * speedMax);
 
