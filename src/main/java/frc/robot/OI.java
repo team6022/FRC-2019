@@ -99,8 +99,6 @@ public class OI
 		// Sarjoy Input ===========================================================
 		// Extending arm positions will need to be fixed below especially
 		// since we are resetting the Talon SRX starting postion to 0 now.
-		// This wasn't done when we recorded the origional numbers.
-		// add 150
 
 		// Velcro Piston
 		Arcade1.whenPressed(new VelcroPistonsToggle());
@@ -114,14 +112,14 @@ public class OI
 		Arcade3.whenReleased(new Intake(0.0));
 
 		// Rocket Cargo
-		Arcade4.whenPressed(new ExtendingArmMovePosition(940)); // bottom
-		Arcade5.whenPressed(new ExtendingArmMovePosition(1886)); // medium
-		Arcade6.whenPressed(new ExtendingArmMovePosition(2973)); // top
+		Arcade4.whenPressed(new ExtendingArmMovePosition(1090)); // bottom
+		Arcade5.whenPressed(new ExtendingArmMovePosition(2036)); // medium
+		Arcade6.whenPressed(new ExtendingArmMovePosition(3123)); // top
 
 		// Rocket Hatch
-		Arcade7.whenPressed(new ExtendingArmMovePosition(600)); // bottom
-		Arcade8.whenPressed(new ExtendingArmMovePosition(1570)); // medium
-		Arcade9.whenPressed(new ExtendingArmMovePosition(2682)); // top
+		Arcade7.whenPressed(new ExtendingArmMovePosition(750)); // bottom
+		Arcade8.whenPressed(new ExtendingArmMovePosition(1720)); // medium
+		Arcade9.whenPressed(new ExtendingArmMovePosition(2832)); // top
 
 		// Ship
 		Arcade10.whenPressed(new ExtendingArmMovePosition(0)); // cargo
