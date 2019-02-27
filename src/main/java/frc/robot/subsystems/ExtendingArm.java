@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import frc.robot.commands.ExtendingArmMove;
@@ -48,8 +49,8 @@ public class ExtendingArm extends Subsystem {
 		TalonRight.setNeutralMode((isBreakMode) ? NeutralMode.Brake : NeutralMode.Coast);
 
 		// might be useful? ¯\_(ツ)_/¯ idk
-		// TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
-		// TalonRight.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
+		TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
+		TalonRight.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 30);
 
 	}
 
@@ -79,12 +80,12 @@ public class ExtendingArm extends Subsystem {
 		// Pick different speeds depending on whether you are going up or down.
 		// You probably don't want to go over 0.40
 		Double speedMaxUp = 0.40;
-		Double speedMaxDown = 0.20;
+		Double speedMaxDown = 0.20; // <-fix this
 
 		// Turnery statement to pick correct speed.
 		Double speedMax = (speed > 0)
 			? speedMaxUp
-			: speedMaxDown;
+			: speedMaxUp;
 
 		// Move those Talons
 		TalonLeft.set(ControlMode.PercentOutput, speed * speedMax);
@@ -98,6 +99,8 @@ public class ExtendingArm extends Subsystem {
 	{
 		TalonLeft.set(ControlMode.MotionMagic, position);
 		TalonRight.set(ControlMode.MotionMagic, position);
+
+		System.out.println(position);
 
 		UpdateSmartDashboard();
 	}

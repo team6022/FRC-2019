@@ -75,7 +75,7 @@ public class OI
 		XBoxR3.whenPressed(new VelcroPistonsToggle());
 
 		// Vision Alignment
-		XBoxA.whileHeld(new VisionAlign());
+		// XBoxA.whileHeld(new VisionAlign());
 
 		// Pull Ball In
 		XBoxLB.whileHeld(new Intake(0.75));
@@ -90,12 +90,17 @@ public class OI
 		XBoxStart.whenPressed(new RecordStart());
 		XBoxBack.whenPressed(new RecordStop());
 
+		// just testing
+		XBoxY.whileHeld(new ExtendingArmMovePosition(1000));
+		XBoxA.whileHeld(new ExtendingArmMovePosition(10));
+
 
 
 		// Sarjoy Input ===========================================================
 		// Extending arm positions will need to be fixed below especially
 		// since we are resetting the Talon SRX starting postion to 0 now.
 		// This wasn't done when we recorded the origional numbers.
+		// add 150
 
 		// Velcro Piston
 		Arcade1.whenPressed(new VelcroPistonsToggle());
