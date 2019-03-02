@@ -1,12 +1,16 @@
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+
 
 
 public class ExtendingArmMovePosition extends Command
 {
 
+	static TalonSRX TalonLeft = new TalonSRX(RobotMap.ExtendingArmLeft);
 
 	Integer position = 0;
 
@@ -27,7 +31,8 @@ public class ExtendingArmMovePosition extends Command
 
 	protected boolean isFinished()
 	{
-		return true;
+		// stop running command only when the left talon is equal to the position that was set
+		return TalonLeft.getSelectedSensorPosition() == position;
 	}
 
 	protected void end()

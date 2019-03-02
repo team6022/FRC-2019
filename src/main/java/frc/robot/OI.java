@@ -37,18 +37,18 @@ public class OI
 	Button Arcade1 = new JoystickButton(Sarjoy1, 1);
 	Button Arcade2 = new JoystickButton(Sarjoy1, 2);
 	Button Arcade3 = new JoystickButton(Sarjoy1, 3);
-	Button Arcade4 = new JoystickButton(Sarjoy1, 4);
-	Button Arcade5 = new JoystickButton(Sarjoy1, 5);
-	Button Arcade6 = new JoystickButton(Sarjoy1, 6);
-	Button Arcade7 = new JoystickButton(Sarjoy1, 7);
-	Button Arcade8 = new JoystickButton(Sarjoy1, 8);
-	Button Arcade9 = new JoystickButton(Sarjoy1, 9);
-	Button Arcade10 = new JoystickButton(Sarjoy1, 10);
-	Button Arcade11 = new JoystickButton(Sarjoy1, 11);
-	Button Arcade12 = new JoystickButton(Sarjoy1, 12);
-	Button Arcade13 = new JoystickButton(Sarjoy2, 1);
-	Button Arcade14 = new JoystickButton(Sarjoy2, 2);
-	Button Arcade15 = new JoystickButton(Sarjoy2, 3);
+	Button Arcade4 = new JoystickButton(Sarjoy2, 1);
+	Button Arcade5 = new JoystickButton(Sarjoy2, 2);
+	Button Arcade6 = new JoystickButton(Sarjoy2, 3);
+	Button Arcade7 = new JoystickButton(Sarjoy2, 4);
+	Button Arcade8 = new JoystickButton(Sarjoy2, 5);
+	Button Arcade9 = new JoystickButton(Sarjoy2, 6);
+	Button Arcade10 = new JoystickButton(Sarjoy2, 7);
+	Button Arcade11 = new JoystickButton(Sarjoy2, 8);
+	Button Arcade12 = new JoystickButton(Sarjoy2, 9);
+	Button Arcade13 = new JoystickButton(Sarjoy2, 10);
+	Button Arcade14 = new JoystickButton(Sarjoy2, 11);
+	Button Arcade15 = new JoystickButton(Sarjoy2, 12);
 
 
 	public XboxController getJoystickBran()
@@ -101,37 +101,37 @@ public class OI
 		// since we are resetting the Talon SRX starting postion to 0 now.
 
 		// Velcro Piston
-		Arcade1.whenPressed(new VelcroPistonsToggle());
+		Arcade9.whenPressed(new VelcroPistonsToggle());
 
 		// Pull Ball In
-		Arcade2.whileHeld(new Intake(0.75));
-		Arcade2.whenReleased(new Intake(0.0));
+		Arcade6.whileHeld(new Intake(0.75));
+		Arcade6.whenReleased(new Intake(0.0));
 
 		// Shoot Ball Out
 		Arcade3.whileHeld(new Intake(-1.0));
 		Arcade3.whenReleased(new Intake(0.0));
 
 		// Rocket Cargo
-		Arcade4.whenPressed(new ExtendingArmMovePosition(1090)); // bottom
-		Arcade5.whenPressed(new ExtendingArmMovePosition(2036)); // medium
-		Arcade6.whenPressed(new ExtendingArmMovePosition(3123)); // top
+		Arcade10.whenPressed(new ExtendingArmMovePosition(1090)); // bottom
+		Arcade11.whenPressed(new ExtendingArmMovePosition(2036)); // medium
+		Arcade12.whenPressed(new ExtendingArmMovePosition(3123)); // top
 
 		// Rocket Hatch
-		Arcade7.whenPressed(new ExtendingArmMovePosition(750)); // bottom
-		Arcade8.whenPressed(new ExtendingArmMovePosition(1720)); // medium
-		Arcade9.whenPressed(new ExtendingArmMovePosition(2832)); // top
+		Arcade13.whenPressed(new ExtendingArmMovePosition(750)); // bottom
+		Arcade14.whenPressed(new ExtendingArmMovePosition(1720)); // medium
+		Arcade15.whenPressed(new ExtendingArmMovePosition(2832)); // top
 
 		// Ship
-		Arcade10.whenPressed(new ExtendingArmMovePosition(0)); // cargo
-		Arcade11.whenPressed(new ExtendingArmMovePosition(0)); // hatch
+		Arcade8.whenPressed(new ExtendingArmMovePosition(1090)); // cargo
+		Arcade7.whenPressed(new ExtendingArmMovePosition(750)); // hatch
 
 		// Station
-		Arcade12.whenPressed(new ExtendingArmMovePosition(0)); // cargo
-		Arcade13.whenPressed(new ExtendingArmMovePosition(0)); // hatch
+		Arcade5.whenPressed(new ExtendingArmMovePosition(1090)); // cargo
+		Arcade4.whenPressed(new ExtendingArmMovePosition(750)); // hatch
 
 		// Arm
-		Arcade14.whenPressed(new ExtendingArmMovePosition(0)); // driving
-		Arcade15.whenPressed(new ExtendingArmMovePosition(0)); // ground
+		Arcade2.whenPressed(new ExtendingArmMovePosition(10)); // driving
+		Arcade1.whenPressed(new ExtendingArmMovePosition(1)); // ground
 
 	}
 

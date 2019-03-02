@@ -33,19 +33,23 @@ public class ExtendingArm extends Subsystem {
 
 		setDefaultCommand(new ExtendingArmMove());
 
+
 		// reset to factory default to prevent unexpected behaviour
-		TalonLeft.configFactoryDefault();
-		TalonRight.configFactoryDefault();
+		// TalonLeft.configFactoryDefault();
+		// TalonRight.configFactoryDefault();
+
+
+		// // reset starting position to 0
+		// TalonLeft.setSelectedSensorPosition(0);
+		// TalonRight.setSelectedSensorPosition(0);
+
 
 		// invert so we don't have to pass it negative numbers
 		TalonLeft.setInverted(true);
 
 		// Make right the slave and left the master (until right encoder gets fixed)
-		TalonRight.follow(TalonLeft);
+		// TalonRight.follow(TalonLeft);
 
-		// reset starting position to 0
-		TalonLeft.setSelectedSensorPosition(0);
-		TalonRight.setSelectedSensorPosition(0);
 
 		// toggle neutralmode mode break or coast
 		boolean isBreakMode = true;
@@ -55,26 +59,26 @@ public class ExtendingArm extends Subsystem {
 
 		// Set to zero to skip waiting for confirmation, set to nonzero to wait and report to DS if action fails.
 		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Constants.java#L20-L24
-		int kTimeoutMs = 30;
+		int kTimeoutMs = 0;
 
 
 		// Configure Sensor Source for Pirmary PID
 		// might be useful? ¯\_(ツ)_/¯ idk
 		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L100
-		TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, kTimeoutMs);
+		// TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, kTimeoutMs);
 
 		// Set Motion Magic gains in slot0
 		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L122-L127
-		TalonLeft.selectProfileSlot(0, 0);
-		TalonLeft.config_kF(0, 0.2, kTimeoutMs);
-		TalonLeft.config_kP(0, 0.2, kTimeoutMs);
-		TalonLeft.config_kI(0, 0.0, kTimeoutMs);
-		TalonLeft.config_kD(0, 0.0, kTimeoutMs);
+		// TalonLeft.selectProfileSlot(0, 0);
+		// TalonLeft.config_kF(0, 0.0, kTimeoutMs);
+		// TalonLeft.config_kP(0, 10, kTimeoutMs);
+		// TalonLeft.config_kI(0, 0.2, kTimeoutMs);
+		// TalonLeft.config_kD(0, 8, kTimeoutMs);
 
 		// Set acceleration and vcruise velocity
 		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L129-L131
-		TalonLeft.configMotionCruiseVelocity(15000, kTimeoutMs);
-		TalonLeft.configMotionAcceleration(6000, kTimeoutMs);
+		// TalonLeft.configMotionCruiseVelocity(15000, kTimeoutMs);
+		// TalonLeft.configMotionAcceleration(6000, kTimeoutMs);
 
 	}
 
@@ -86,7 +90,8 @@ public class ExtendingArm extends Subsystem {
 	{
 
 		// set up an artificial joystick lift so that the bucket can maintain position
-		Double artificialLift = 0.34;
+		// Double artificialLift = 0.34;
+		Double artificialLift = 0.0;
 
 		// lift is only needed if the talon position is above 648. If the lift is added when we are below that, the bucket will move upwards on its own.
 		if (TalonLeft.getSelectedSensorPosition() < 648.0) artificialLift = 0.0;
@@ -121,8 +126,9 @@ public class ExtendingArm extends Subsystem {
 
 	public void MovePosition(Integer position)
 	{
-		TalonLeft.set(ControlMode.MotionMagic, position);
+		TalonLeft.set(ControlMode.MotionMagic, -position);
 		TalonRight.set(ControlMode.MotionMagic, position);
+
 
 		System.out.println(position);
 
