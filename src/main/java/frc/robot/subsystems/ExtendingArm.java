@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -49,20 +48,20 @@ public class ExtendingArm extends Subsystem {
 
 
 	/**
-	* Use Joystick to move
+	* Use XBox Joystick to move
 	*/
-	public void JoystickMove(XboxController Branjoy)
+	public void JoystickMove(Joystick Sarjoy1)
 	{
 
 		// set up an artificial joystick lift so that the bucket can maintain position
-		// Double artificialLift = 0.34;
-		Double artificialLift = 0.0;
+		Double artificialLift = 0.34;
+		// Double artificialLift = 0.0;
 
 		// lift is only needed if the talon position is above 648. If the lift is added when we are below that, the bucket will move upwards on its own.
 		if (TalonLeft.getSelectedSensorPosition() < 648.0) artificialLift = 0.0;
 
 		// run move
-		Move(Branjoy.getY(Hand.kRight) + -artificialLift);
+		Move(Sarjoy1.getY() + -artificialLift);
 	}
 
 	/**
