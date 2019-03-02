@@ -13,11 +13,6 @@ import frc.robot.subsystems.RhinoTracks;
 import frc.robot.subsystems.LiftPistonsFront;
 import frc.robot.subsystems.LiftPistonsBack;
 import frc.robot.subsystems.Intake;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
-import frc.robot.RobotMap;
-
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,8 +32,6 @@ public class Robot extends TimedRobot
 	public static LiftPistonsBack LiftPistonsBack;
 	public static Intake Intake;
 
-	static TalonSRX TalonRight = new TalonSRX(RobotMap.ExtendingArmRight);
-	static TalonSRX TalonLeft = new TalonSRX(RobotMap.ExtendingArmLeft);
 
 
 	public String gameData;
@@ -53,17 +46,6 @@ public class Robot extends TimedRobot
 
 	public void robotInit()
 	{
-
-
-		// reset to factory default to prevent unexpected behaviour
-		// TalonLeft.configFactoryDefault();
-		// TalonRight.configFactoryDefault();
-
-		// reset starting position to 0
-		TalonLeft.setSelectedSensorPosition(0);
-		TalonRight.setSelectedSensorPosition(0);
-
-
 
 		// ShuffleBoard Sets
 		SmartDashboard.setDefaultBoolean("VelcroPistonsOut", false);

@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import frc.robot.commands.ExtendingArmMove;
@@ -34,16 +33,6 @@ public class ExtendingArm extends Subsystem {
 		setDefaultCommand(new ExtendingArmMove());
 
 
-		// reset to factory default to prevent unexpected behaviour
-		// TalonLeft.configFactoryDefault();
-		// TalonRight.configFactoryDefault();
-
-
-		// // reset starting position to 0
-		// TalonLeft.setSelectedSensorPosition(0);
-		// TalonRight.setSelectedSensorPosition(0);
-
-
 		// invert so we don't have to pass it negative numbers
 		TalonLeft.setInverted(true);
 
@@ -55,30 +44,6 @@ public class ExtendingArm extends Subsystem {
 		boolean isBreakMode = true;
 		TalonLeft.setNeutralMode((isBreakMode) ? NeutralMode.Brake : NeutralMode.Coast);
 		TalonRight.setNeutralMode((isBreakMode) ? NeutralMode.Brake : NeutralMode.Coast);
-
-
-		// Set to zero to skip waiting for confirmation, set to nonzero to wait and report to DS if action fails.
-		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Constants.java#L20-L24
-		int kTimeoutMs = 0;
-
-
-		// Configure Sensor Source for Pirmary PID
-		// might be useful? ¯\_(ツ)_/¯ idk
-		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L100
-		// TalonLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, kTimeoutMs);
-
-		// Set Motion Magic gains in slot0
-		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L122-L127
-		// TalonLeft.selectProfileSlot(0, 0);
-		// TalonLeft.config_kF(0, 0.0, kTimeoutMs);
-		// TalonLeft.config_kP(0, 10, kTimeoutMs);
-		// TalonLeft.config_kI(0, 0.2, kTimeoutMs);
-		// TalonLeft.config_kD(0, 8, kTimeoutMs);
-
-		// Set acceleration and vcruise velocity
-		// https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/MotionMagic/src/main/java/frc/robot/Robot.java#L129-L131
-		// TalonLeft.configMotionCruiseVelocity(15000, kTimeoutMs);
-		// TalonLeft.configMotionAcceleration(6000, kTimeoutMs);
 
 	}
 
@@ -119,18 +84,6 @@ public class ExtendingArm extends Subsystem {
 		// Move those Talons
 		TalonLeft.set(ControlMode.PercentOutput, speed * speedMax);
 		TalonRight.set(ControlMode.PercentOutput, speed * speedMax);
-
-		UpdateSmartDashboard();
-	}
-
-
-	public void MovePosition(Integer position)
-	{
-		TalonLeft.set(ControlMode.MotionMagic, -position);
-		TalonRight.set(ControlMode.MotionMagic, position);
-
-
-		System.out.println(position);
 
 		UpdateSmartDashboard();
 	}
