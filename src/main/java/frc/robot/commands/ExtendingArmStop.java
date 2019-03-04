@@ -29,7 +29,8 @@ public class ExtendingArmStop extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.Stop();
+		// pass in -1 will make the arm go down
+		Robot.ExtendingArm.Move(-1);
 	}
 
 	protected boolean isFinished()
@@ -41,7 +42,7 @@ public class ExtendingArmStop extends Command
 	protected void end()
 	{
 		// reset back to zero
-		// We need to do this because sometimes the chain slack causes this end somewhere between 0-50.
+		// We need to do this because sometimes the chain slack causes this to end somewhere between 0-50.
 		TalonLeft.setSelectedSensorPosition(0);
 	}
 

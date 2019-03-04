@@ -91,17 +91,6 @@ public class ExtendingArm extends Subsystem {
 	}
 
 
-	public void Stop()
-	{
-
-		// Move those Talons
-		TalonLeft.set(ControlMode.PercentOutput, -0.2);
-		TalonRight.set(ControlMode.PercentOutput, -0.2);
-
-		UpdateSmartDashboard();
-	}
-
-
 	/**
 	* Makes sure the {@link SmartDashboard} is updated with the latest values
 	*/
