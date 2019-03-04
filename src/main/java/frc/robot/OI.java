@@ -72,33 +72,35 @@ public class OI
 		// Branjoy Input ===========================================================
 
 		// Velcro Piston
-		XBoxR3.whenPressed(new VelcroPistonsToggle());
+		// XBoxR3.whenPressed(new VelcroPistonsToggle());
 
-		// Vision Alignment
-		// XBoxA.whileHeld(new VisionAlign());
+		// // Vision Alignment
+		// // XBoxA.whileHeld(new VisionAlign());
 
-		// Pull Ball In
-		XBoxLB.whileHeld(new Intake(0.75));
-		XBoxLB.whenReleased(new Intake(0.0));
+		// // Pull Ball In
+		// XBoxLB.whileHeld(new Intake(0.75));
+		// XBoxLB.whenReleased(new Intake(0.0));
 
-		// Shoot Ball Out
-		XBoxRB.whileHeld(new Intake(-1.0));
-		XBoxRB.whenReleased(new Intake(0.0));
+		// // Shoot Ball Out
+		// XBoxRB.whileHeld(new Intake(-1.0));
+		// XBoxRB.whenReleased(new Intake(0.0));
 
 
-		// Start/Stop Shuffleboard Record
-		XBoxStart.whenPressed(new RecordStart());
-		XBoxBack.whenPressed(new RecordStop());
+		// // Start/Stop Shuffleboard Record
+		// XBoxStart.whenPressed(new RecordStart());
+		// XBoxBack.whenPressed(new RecordStop());
 
-		// just testing
-		XBoxY.whileHeld(new ExtendingArmMovePosition(1000));
-		XBoxA.whileHeld(new ExtendingArmMovePosition(10));
+		// // just testing
+		// XBoxY.whileHeld(new ExtendingArmMovePosition(1000));
+		// XBoxA.whileHeld(new ExtendingArmMovePosition(10));
 
 
 
 		// Sarjoy Input ===========================================================
 		// Extending arm positions will need to be fixed below especially
 		// since we are resetting the Talon SRX starting postion to 0 now.
+
+		Integer offset = -0;
 
 		// Velcro Piston
 		Arcade9.whenPressed(new VelcroPistonsToggle());
@@ -112,26 +114,26 @@ public class OI
 		Arcade3.whenReleased(new Intake(0.0));
 
 		// Rocket Cargo
-		Arcade10.whenPressed(new ExtendingArmMovePosition(1090)); // bottom
-		Arcade11.whenPressed(new ExtendingArmMovePosition(2036)); // medium
-		Arcade12.whenPressed(new ExtendingArmMovePosition(3123)); // top
+		Arcade10.whenPressed(new ExtendingArmMovePosition(-1370 + offset)); // bottom
+		Arcade11.whenPressed(new ExtendingArmMovePosition(-2360 + offset)); // medium
+		Arcade12.whenPressed(new ExtendingArmMovePosition(-3470 + offset)); // top
 
 		// Rocket Hatch
-		Arcade13.whenPressed(new ExtendingArmMovePosition(750)); // bottom
-		Arcade14.whenPressed(new ExtendingArmMovePosition(1720)); // medium
-		Arcade15.whenPressed(new ExtendingArmMovePosition(2832)); // top
+		Arcade13.whenPressed(new ExtendingArmMovePosition(-990 + offset)); // bottom
+		Arcade14.whenPressed(new ExtendingArmMovePosition(-2070 + offset)); // medium
+		Arcade15.whenPressed(new ExtendingArmMovePosition(-3015 + offset)); // top
 
 		// Ship
-		Arcade8.whenPressed(new ExtendingArmMovePosition(1090)); // cargo
-		Arcade7.whenPressed(new ExtendingArmMovePosition(750)); // hatch
+		Arcade8.whenPressed(new ExtendingArmMovePosition(-1835 + offset)); // cargo
+		Arcade7.whenPressed(new ExtendingArmMovePosition(-770 + offset)); // hatch
 
 		// Station
-		Arcade5.whenPressed(new ExtendingArmMovePosition(1090)); // cargo
-		Arcade4.whenPressed(new ExtendingArmMovePosition(750)); // hatch
+		Arcade5.whenPressed(new ExtendingArmMovePosition(-1825 + offset)); // cargo
+		Arcade4.whenPressed(new ExtendingArmMovePosition(-860 + offset)); // hatch
 
 		// Arm
-		Arcade2.whenPressed(new ExtendingArmMovePosition(10)); // driving
-		Arcade1.whenPressed(new ExtendingArmMovePosition(1)); // ground
+		Arcade2.whenPressed(new ExtendingArmMovePosition(-600 + offset)); // driving
+		Arcade1.whenPressed(new ExtendingArmStop()); // ground
 
 	}
 

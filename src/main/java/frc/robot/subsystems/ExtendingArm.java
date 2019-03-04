@@ -33,11 +33,13 @@ public class ExtendingArm extends Subsystem {
 
 
 		// invert so we don't have to pass it negative numbers
-		TalonLeft.setInverted(true);
+		TalonRight.setInverted(true);
 
 		// Make right the slave and left the master (until right encoder gets fixed)
 		// TalonRight.follow(TalonLeft);
 
+		TalonLeft.setSelectedSensorPosition(0);
+		// TalonRight.setSelectedSensorPosition(0);
 
 		// toggle neutralmode mode break or coast
 		boolean isBreakMode = true;
@@ -58,10 +60,11 @@ public class ExtendingArm extends Subsystem {
 		// Double artificialLift = 0.0;
 
 		// lift is only needed if the talon position is above 648. If the lift is added when we are below that, the bucket will move upwards on its own.
-		if (TalonLeft.getSelectedSensorPosition() < 648.0) artificialLift = 0.0;
+		if (TalonLeft.getSelectedSensorPosition() > -250.0) artificialLift = 0.0;
+
 
 		// run move
-		Move(Sarjoy1.getY() + -artificialLift);
+		Move(-Sarjoy1.getY() + artificialLift);
 	}
 
 	/**
@@ -73,7 +76,7 @@ public class ExtendingArm extends Subsystem {
 		// Pick different speeds depending on whether you are going up or down.
 		// You probably don't want to go over 0.40
 		Double speedMaxUp = 0.40;
-		Double speedMaxDown = 0.40;
+		Double speedMaxDown = 0.20;
 
 		// Turnery statement to pick correct speed.
 		Double speedMax = (speed > 0)
@@ -87,6 +90,16 @@ public class ExtendingArm extends Subsystem {
 		UpdateSmartDashboard();
 	}
 
+
+	public void Stop()
+	{
+
+		// Move those Talons
+		TalonLeft.set(ControlMode.PercentOutput, -0.2);
+		TalonRight.set(ControlMode.PercentOutput, -0.2);
+
+		UpdateSmartDashboard();
+	}
 
 
 	/**

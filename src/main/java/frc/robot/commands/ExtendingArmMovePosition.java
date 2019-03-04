@@ -15,7 +15,7 @@ public class ExtendingArmMovePosition extends Command
 
 	Integer positionNew = 0;
 	Integer positionCurrent = 0;
-	Double direction = 1.0;
+	Double direction = -1.0;
 
 
 	public ExtendingArmMovePosition(Integer _positionNew)
@@ -23,10 +23,7 @@ public class ExtendingArmMovePosition extends Command
 		requires(Robot.ExtendingArm);
 
 		positionNew = _positionNew;
-		positionCurrent = TalonLeft.getSelectedSensorPosition();
 
-		// check to see if the arm should be going up or down
-		if (positionNew < positionCurrent) direction = -1.0;
 
 	}
 
@@ -36,16 +33,36 @@ public class ExtendingArmMovePosition extends Command
 
 	protected void execute()
 	{
-		Robot.ExtendingArm.Move(0.40 * direction);
+		positionCurrent = TalonLeft.getSelectedSensorPosition();
+
+		// check to see if the arm should be going up or down
+		if (positionNew < TalonLeft.getSelectedSensorPosition()) direction = 1.0;
+
+		Robot.ExtendingArm.Move(direction);
 	}
 
 	protected boolean isFinished()
 	{
 		// stop running command only when the left talon is equal to the position that was set
+		System.out.println("=======================================");
+
+		System.out.println("current: " + positionCurrent);
+		System.out.println("new: " + positionNew);
+		System.out.println("direction: " + direction);
+
+
 		if (direction == 1.0) {
-			return TalonLeft.getSelectedSensorPosition() >= positionNew;
+			if (TalonLeft.getSelectedSensorPosition() <= positionNew) {
+				return true;
+			}
+			return false;
+		} else if (direction == -1.0) {
+			if (TalonLeft.getSelectedSensorPosition() >= positionNew) {
+				return true;
+			}
+			return false;
 		} else {
-			return TalonLeft.getSelectedSensorPosition() <= positionNew;
+			return true;
 		}
 
 	}
