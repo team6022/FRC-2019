@@ -17,20 +17,25 @@ public class VelcroPistonsToggle extends Command
 
 	protected void initialize()
 	{
+		// set a 1 second timeout
+		setTimeout(1);
 	}
 
 	protected void execute()
 	{
-		Robot.VelcroPistons.Toggle();
+		// Robot.VelcroPistons.Toggle();
+		Robot.VelcroPistons.Active(true);
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		// return true;
+		return isTimedOut();
 	}
 
 	protected void end()
 	{
+		Robot.VelcroPistons.Active(false);
 	}
 
 	protected void interrupted()
