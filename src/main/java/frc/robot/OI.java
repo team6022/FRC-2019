@@ -74,8 +74,8 @@ public class OI
 		// Velcro Piston
 		// XBoxR3.whenPressed(new VelcroPistonsToggle());
 
-		// // Vision Alignment
-		// // XBoxA.whileHeld(new VisionAlign());
+		// Vision Alignment
+		XBoxA.whileHeld(new VisionAlign());
 
 		// // Pull Ball In
 		// XBoxLB.whileHeld(new Intake(0.75));
@@ -86,9 +86,9 @@ public class OI
 		// XBoxRB.whenReleased(new Intake(0.0));
 
 
-		// // Start/Stop Shuffleboard Record
-		// XBoxStart.whenPressed(new RecordStart());
-		// XBoxBack.whenPressed(new RecordStop());
+		// Start/Stop Shuffleboard Record
+		XBoxStart.whenPressed(new RecordStart());
+		XBoxBack.whenPressed(new RecordStop());
 
 		// // just testing
 		// XBoxY.whileHeld(new ExtendingArmMovePosition(1000));
