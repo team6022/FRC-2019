@@ -97,10 +97,9 @@ public class OI
 
 
 		// Sarjoy Input ===========================================================
-		// Extending arm positions will need to be fixed below especially
-		// since we are resetting the Talon SRX starting postion to 0 now.
 
-		Integer offset = -0;
+		// This offset is here just in case we need to mass update all arm positions.
+		Integer offset = 0;
 
 		// Velcro Piston
 		Arcade9.whenPressed(new VelcroPistonsToggle());

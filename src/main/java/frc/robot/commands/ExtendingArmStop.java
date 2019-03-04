@@ -21,7 +21,6 @@ public class ExtendingArmStop extends Command
 	public ExtendingArmStop()
 	{
 		requires(Robot.ExtendingArm);
-
 	}
 
 	protected void initialize()
@@ -30,26 +29,20 @@ public class ExtendingArmStop extends Command
 
 	protected void execute()
 	{
-
-
 		Robot.ExtendingArm.Stop();
 	}
 
 	protected boolean isFinished()
 	{
-			if (TalonLeft.getSelectedSensorPosition() >= 0) {
-
-				// reset back to zero
-				TalonLeft.setSelectedSensorPosition(0);
-
-				return true;
-			} else {
-				return false;
-			}
+		// make sure the command keeps running until the position of the left are is 0 or lower
+		return TalonLeft.getSelectedSensorPosition() >= 0;
 	}
 
 	protected void end()
 	{
+		// reset back to zero
+		// We need to do this because sometimes the chain slack causes this end somewhere between 0-50.
+		TalonLeft.setSelectedSensorPosition(0);
 	}
 
 	protected void interrupted()
