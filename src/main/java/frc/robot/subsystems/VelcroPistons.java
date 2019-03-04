@@ -24,6 +24,7 @@ public class VelcroPistons extends Subsystem {
 
 	/**
 	 * Toggles the front velcro pistons for 1 second
+	 * (probably don't run this since it sleeps the entire thread and the robot freezes)
 	 */
 	public void Toggle()
 	{

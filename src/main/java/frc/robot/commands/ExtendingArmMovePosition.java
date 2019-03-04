@@ -14,7 +14,6 @@ public class ExtendingArmMovePosition extends Command
 	static TalonSRX TalonLeft = new TalonSRX(RobotMap.ExtendingArmLeft);
 
 	Integer positionNew = 0;
-	Integer positionCurrent = 0;
 	Double direction = -1.0;
 
 
@@ -24,7 +23,6 @@ public class ExtendingArmMovePosition extends Command
 
 		positionNew = _positionNew;
 
-
 	}
 
 	protected void initialize()
@@ -33,8 +31,6 @@ public class ExtendingArmMovePosition extends Command
 
 	protected void execute()
 	{
-		positionCurrent = TalonLeft.getSelectedSensorPosition();
-
 		// check to see if the arm should be going up or down
 		if (positionNew < TalonLeft.getSelectedSensorPosition()) direction = 1.0;
 
@@ -43,24 +39,21 @@ public class ExtendingArmMovePosition extends Command
 
 	protected boolean isFinished()
 	{
-		// stop running command only when the left talon is equal to the position that was set
-		System.out.println("=======================================");
 
-		System.out.println("current: " + positionCurrent);
-		System.out.println("new: " + positionNew);
-		System.out.println("direction: " + direction);
+		// isFinished keeps checking to see if this command is ...well... finished.
+		// Once a true bool is returned, this check ends and the command quits.
+		// If false is returned, the command continues.
 
-
+		// going up
 		if (direction == 1.0) {
-			if (TalonLeft.getSelectedSensorPosition() <= positionNew) {
-				return true;
-			}
-			return false;
+			return TalonLeft.getSelectedSensorPosition() <= positionNew;
+
+		// going down
 		} else if (direction == -1.0) {
-			if (TalonLeft.getSelectedSensorPosition() >= positionNew) {
-				return true;
-			}
-			return false;
+			return TalonLeft.getSelectedSensorPosition() >= positionNew;
+
+		// If we get here, somehow a direction was never passed in.
+		// We don't want the command to run any longer, so we pass it a true to make it quit.
 		} else {
 			return true;
 		}
