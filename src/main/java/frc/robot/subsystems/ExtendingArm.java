@@ -59,7 +59,7 @@ public class ExtendingArm extends Subsystem {
 		Double artificialLift = 0.34;
 		// Double artificialLift = 0.0;
 
-		// lift is only needed if the talon position is above 648. If the lift is added when we are below that, the bucket will move upwards on its own.
+		// lift is only needed if the talon position is above 250. If the lift is added when we are below that, the bucket will move upwards on its own.
 		if (TalonLeft.getSelectedSensorPosition() > -250.0) artificialLift = 0.0;
 
 
